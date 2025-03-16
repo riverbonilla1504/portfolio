@@ -1,1 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-poppins: "Poppins", sans-serif; 
+  --color-background: hsl(240, 29%, 90%);
+  --color-foreground: hsl(267, 28%, 17%);
+  --color-primary: hsl(267, 30%, 55%);
+  --color-primary-foreground: hsl(240, 29%, 98%);
+  --color-primary-hover: hsl(267, 31%, 44%);
+  --color-secondary: hsl(270, 21%, 76%);
+  --color-secondary-foreground: hsl(267, 28%, 17%);
+  --color-accent: hsl(267, 25%, 66%);
+  --color-accent-foreground: hsl(240, 33%, 96%);
+  --color-card: hsl(276, 27%, 92%);
+  --color-card-foreground: hsl(267, 28%, 17%);
+  --color-border: hsl(270, 21%, 76%);
+  --color-input: hsl(267, 30%, 55%);
+  --color-ring: hsl(267, 31%, 44%);
+  --color-info: hsl(260, 29%, 86%);
+  --color-info-foreground: hsl(267, 24%, 34%);
+}
+
+.dark {
+  --color-background: hsl(267, 28%, 17%);
+  --color-foreground: hsl(240, 29%, 98%);
+  --color-primary: hsl(267, 31%, 44%);
+  --color-primary-foreground: hsl(240, 29%, 98%);
+  --color-primary-hover: hsl(267, 30%, 55%);
+  --color-secondary: hsl(270, 21%, 50%);
+  --color-secondary-foreground: hsl(240, 29%, 98%);
+  --color-accent: hsl(267, 25%, 45%);
+  --color-accent-foreground: hsl(240, 33%, 96%);
+  --color-card: hsl(276, 27%, 25%);
+  --color-card-foreground: hsl(240, 29%, 98%);
+  --color-border: hsl(270, 21%, 50%);
+  --color-input: hsl(267, 31%, 44%);
+  --color-ring: hsl(267, 30%, 55%);
+  --color-info: hsl(260, 29%, 40%);
+  --color-info-foreground: hsl(240, 29%, 98%);
+}
