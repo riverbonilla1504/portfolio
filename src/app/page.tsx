@@ -1,9 +1,7 @@
-
-
 export default function Home() {
   return (
     <main className="flex flex-col items-center justify-center h-screen w-screen bg-accent-foreground ">
-      <h1 className="text-7xl font-poppins font-bold text-foreground mb-8">Paleta de colores</h1>
+      <h1 className="text-5xl font-poppins font-bold text-foreground mb-8">River Alejandro Bonilla Florez</h1>
       <section className="flex flex-row items-center justify-center w-240 h-100 rounded-3xl shadow-lg p-4 bg-white">
         <section className="flex flex-col items-center justify-center w-60 h-72">
           <figure className="shadow-lg bg-background w-50 h-50 rounded-3xl border border-border ring-2 ring-ring shadow-accent">
