@@ -20,6 +20,26 @@
   --color-ring: hsl(267, 31%, 44%);
   --color-info: hsl(260, 29%, 86%);
   --color-info-foreground: hsl(267, 24%, 34%);
+  --animate-wiggle: wiggle 1s ease-in-out infinite;
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: rotate(-3deg);
+    }
+    50% {
+      transform: rotate(3deg);
+    }
+  }
+}
+@layer utilities {
+  .ease-custom {
+    transition-timing-function: cubic-bezier(0.43, 0.4, 0.29, 1.02);
+  }
+}
+@layer utilities {
+  .card-glass {
+    @apply backdrop-blur-lg backdrop-saturate-[1.8] bg-[rgba(17,25,40,0.75)] rounded-[12px] border border-[rgba(255,255,255,0.125)] p-4;
+  }
 }
 
 .dark {
