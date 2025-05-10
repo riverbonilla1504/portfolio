@@ -1,4 +1,3 @@
-
 import React, { createContext, useState, useEffect, useCallback, ReactNode } from "react";
 
 // Definición de tipos para las traducciones
@@ -25,7 +24,7 @@ const translations: Translations = {
     projects: 'Projects',
     about: 'About me',
     contact: 'Contact',
-    
+
     // Hero Section
     greeting: "Hi, I'm",
     role: "Software Engineering Student",
@@ -54,7 +53,7 @@ const translations: Translations = {
     'finance-description': 'Personal finance management application with expense tracking and investments',
     'javagame-description': 'Game engine developed in Java with 3D graphics and realistic physics',
     'seminario-description': 'Platform for managing academic and professional seminars',
-    
+
     // Project Features
     'finance-features': ['Custom dashboard', 'Interactive charts', 'Automatic reports', 'Smart alerts'],
     'javagame-features': ['3D rendering', 'Collision detection', 'Particle system', 'Visual editor'],
@@ -72,7 +71,7 @@ const translations: Translations = {
     'about.tabs.education': 'Education',
     'about.tabs.interests': 'Interests',
     'about.tabs.aspirations': 'Aspirations',
-    
+
     // Skills
     'about.skills.backend.title': 'Backend Development',
     'about.skills.backend.items': ['Node.js', 'Django', 'NestJs', 'Spring Boot', 'Express', 'PostgreSQL', 'MongoDB'],
@@ -190,7 +189,7 @@ const translations: Translations = {
     projects: 'Proyectos',
     about: 'Sobre mí',
     contact: 'Contacto',
-    
+
     // Hero Section
     greeting: "Hola, soy",
     role: "Estudiante de Ingeniería de Software",
@@ -219,7 +218,7 @@ const translations: Translations = {
     'finance-description': 'Aplicación de gestión financiera personal con seguimiento de gastos e inversiones',
     'javagame-description': 'Motor de juego desarrollado en Java con gráficos 3D y física realista',
     'seminario-description': 'Plataforma para gestión de seminarios académicos y profesionales',
-    
+
     // Project Features
     'finance-features': ['Dashboard personalizado', 'Gráficos interactivos', 'Informes automáticos', 'Alertas inteligentes'],
     'javagame-features': ['Renderizado 3D', 'Detección de colisiones', 'Sistema de partículas', 'Editor visual'],
@@ -237,7 +236,7 @@ const translations: Translations = {
     'about.tabs.education': 'Educación',
     'about.tabs.interests': 'Intereses',
     'about.tabs.aspirations': 'Aspiraciones',
-    
+
     // Skills
     'about.skills.backend.title': 'Desarrollo Backend',
     'about.skills.backend.items': ['Node.js', 'Django', 'NestJs', 'Spring Boot', 'Express', 'PostgreSQL', 'MongoDB'],
@@ -355,19 +354,19 @@ export const LanguageContext = createContext<LanguageContextType>({
   translations,
   currentLanguage: 'es',
   t: () => '',
-  toggleLanguage: () => {}
+  toggleLanguage: () => { }
 });
 
 // Proveedor del contexto que envuelve la aplicación
-export const LanguageProvider: React.FC<{children: ReactNode}> = ({ children }) => {
+export const LanguageProvider: React.FC<{ children: ReactNode; initialLanguage: string }> = ({ children, initialLanguage }) => {
   // Estado para el idioma actual
-  const [currentLanguage, setCurrentLanguage] = useState<string>('es');
+  const [currentLanguage, setCurrentLanguage] = useState<string>(initialLanguage);
 
   // Función para obtener traducciones
   const t = useCallback((key: string): string => {
     const translation = translations[currentLanguage]?.[key];
-    return Array.isArray(translation) 
-      ? translation.join(', ') 
+    return Array.isArray(translation)
+      ? translation.join(', ')
       : (translation as string) || key;
   }, [currentLanguage]);
 
@@ -376,26 +375,11 @@ export const LanguageProvider: React.FC<{children: ReactNode}> = ({ children }) 
     setCurrentLanguage(prev => (prev === 'es' ? 'en' : 'es'));
   }, []);
 
-  // Detectar el idioma del navegador al cargar
-  useEffect(() => {
-    const savedLanguage = localStorage.getItem('language');
-    if (savedLanguage && (savedLanguage === 'es' || savedLanguage === 'en')) {
-      setCurrentLanguage(savedLanguage);
-    } else {
-      // Si no hay un idioma guardado, detectamos el del navegador
-      const browserLanguage = navigator.language.split('-')[0];
-      const detectedLanguage = browserLanguage === 'es' ? 'es' : 'en';
-      setCurrentLanguage(detectedLanguage);
-      localStorage.setItem('language', detectedLanguage);
-    }
-    document.documentElement.lang = currentLanguage;
-  }, []);
-
   // Guardar el idioma cuando cambie
   useEffect(() => {
     localStorage.setItem('language', currentLanguage);
     document.documentElement.lang = currentLanguage;
-    
+
     // Añadir animaciones al cambiar idioma
     document.body.classList.add('lang-change-transition');
     setTimeout(() => {

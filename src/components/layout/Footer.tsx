@@ -2,7 +2,13 @@ import React from "react";
 import { useTranslation } from "../../hooks/useTranslation";
 
 // Componente Link compatible con Next.js y React Router
-const Link = ({ to, className, children }) => {
+interface LinkProps {
+  to: string;
+  className?: string;
+  children: React.ReactNode;
+}
+
+const Link: React.FC<LinkProps> = ({ to, className, children }) => {
   // En un proyecto Next.js real, importaríamos Link de next/link
   // y usaríamos <Link href={to}><a className={className}>{children}</a></Link>
   return (
@@ -14,15 +20,15 @@ const Link = ({ to, className, children }) => {
 
 const Footer: React.FC = () => {
   const { t } = useTranslation();
-  
+
   return (
     <footer className="bg-[rgba(52,29,37,1)] flex w-full flex-col overflow-hidden items-center ml-2.5 mt-[1185px] pt-px pb-[46px] border-[rgba(114,87,96,1)] border-t max-md:max-w-full max-md:mr-[9px] max-md:mt-10">
       <div className="self-stretch flex shrink-0 h-0.5 max-md:max-w-full" />
       <div className="flex w-[1070px] max-w-full items-stretch gap-[40px_100px] flex-wrap mt-[114px] max-md:mt-10">
-        
-        
+
+
         <div className="grow shrink basis-auto max-md:max-w-full">
-          
+
           <div className="gap-5 flex max-md:flex-col max-md:items-stretch">
             <div className="w-[71%] max-md:w-full max-md:ml-0">
               <div className="flex w-full flex-col max-md:mt-10">
@@ -37,7 +43,7 @@ const Footer: React.FC = () => {
                 <p className="text-white text-[15px] font-normal leading-6 self-stretch mt-[27px]">
                   {t('footer.description')}
                 </p>
-                
+
                 <div className="flex items-stretch gap-4 mt-[33px]">
                   <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
                     <img
@@ -46,7 +52,7 @@ const Footer: React.FC = () => {
                       className="aspect-[1] object-contain w-11 shrink-0 rounded-xl"
                     />
                   </a>
-                  
+
                   <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">
                     <img
                       src="https://cdn.builder.io/api/v1/image/assets/TEMP/b3dad1c6073fb28ea06bf26c17d09ed7a2824f90?placeholderIfAbsent=true"
@@ -64,11 +70,11 @@ const Footer: React.FC = () => {
                 </div>
               </div>
             </div>
-            
-            
+
+
             <div className="w-[29%] ml-5 max-md:w-full max-md:ml-0">
               <nav className="flex w-full flex-col text-[15px] text-white font-normal max-md:mt-10">
-                
+
                 <div className="self-stretch flex items-stretch gap-3 text-xl font-bold whitespace-nowrap tracking-[0.5px]">
                   <img
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/c77157922d320e64550c722d8ab9ff0660d9bbbf?placeholderIfAbsent=true"
@@ -77,7 +83,7 @@ const Footer: React.FC = () => {
                   />
                   <div className="grow shrink w-[99px]">{t('footer.sections')}</div>
                 </div>
-                
+
                 <Link to="/" className="flex items-stretch gap-3 whitespace-nowrap mt-[37px]">
                   <img
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/0feddaadd093cd06029940673eb2f8baedaf1a60?placeholderIfAbsent=true"
@@ -98,8 +104,8 @@ const Footer: React.FC = () => {
             </div>
           </div>
         </div>
-        
-        
+
+
         <div className="flex flex-col text-base text-white font-normal">
           <div className="flex items-stretch gap-3 text-xl font-bold whitespace-nowrap tracking-[0.5px]">
             <img
@@ -135,8 +141,8 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-      
-      
+
+
       <div className="w-[1200px] max-w-full text-sm text-white font-normal text-center mt-[93px] pt-[47px] pb-[7px] px-[70px] border-[rgba(114,87,96,1)] border-t max-md:mt-10 max-md:px-5">
         © 2025 River {t('footer.rights')}
       </div>

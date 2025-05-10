@@ -3,7 +3,13 @@ import { motion } from "framer-motion";
 import { useTranslation } from "../../hooks/useTranslation";
 
 // Componente Link compatible con Next.js y React Router
-const Link = ({ to, className, children }) => {
+interface LinkProps {
+  to: string;
+  className?: string;
+  children: React.ReactNode;
+}
+
+const Link: React.FC<LinkProps> = ({ to, className, children }) => {
   // En un proyecto Next.js real, importaríamos Link de next/link
   return (
     <a href={to} className={className}>
@@ -14,30 +20,30 @@ const Link = ({ to, className, children }) => {
 
 const Hero: React.FC = () => {
   const { t } = useTranslation();
-  
+
   return (
     <section
       id="home"
       className="bg-[rgba(61,42,47,1)] self-stretch flex w-full flex-col overflow-hidden items-center pt-[84px] px-[70px] max-md:max-w-full max-md:px-5"
       aria-label="Introduction"
     >
-      
+
       <div className="w-full max-w-[1483px] max-md:max-w-full">
         <div className="gap-5 flex max-md:flex-col max-md:items-stretch">
           <div className="w-[67%] max-md:w-full max-md:ml-0">
-            
+
             <div className="flex grow items-start gap-5 font-normal flex-wrap justify-between mt-[85px] max-md:max-w-full max-md:mt-10">
               <div
                 className="bg-[rgba(204,160,169,1)] flex w-[100px] shrink-0 h-[100px] rounded-[50px]"
                 aria-hidden="true"
               />
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
                 className="flex flex-col mt-[54px] max-md:max-w-full max-md:mt-10"
               >
-                
+
                 <h1
                   className="text-[rgba(229,214,218,1)] text-[56px] leading-[67px] w-[243px] max-md:text-[40px] max-md:leading-[54px]"
                 >
@@ -55,7 +61,7 @@ const Hero: React.FC = () => {
                 >
                   {t('hero-description')}
                 </p>
-                
+
                 <div className="flex items-stretch gap-4 text-[13px] font-semibold text-center mt-10">
                   <Link
                     to="/projects"
@@ -70,7 +76,7 @@ const Hero: React.FC = () => {
                     {t('contact-me')}
                   </Link>
                 </div>
-                
+
                 <div
                   className="bg-[rgba(204,160,169,1)] self-center flex w-[120px] shrink-0 h-[83px] mt-[85px] rounded-[60px] max-md:mt-10"
                   aria-hidden="true"
@@ -82,7 +88,7 @@ const Hero: React.FC = () => {
               />
             </div>
           </div>
-          
+
           <div className="w-[33%] ml-5 max-md:w-full max-md:ml-0">
             <div className="w-full max-md:mt-10">
               <div

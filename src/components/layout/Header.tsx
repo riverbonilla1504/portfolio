@@ -3,15 +3,24 @@ import { motion } from "framer-motion";
 import { useTranslation } from "../../hooks/useTranslation";
 
 // Componente Link compatible con Next.js y React Router
-const Link = ({ href, onClick, className, children }) => {
+import { ReactNode } from "react";
+
+interface LinkProps {
+  href: string;
+  onClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
+  className?: string;
+  children: ReactNode;
+}
+
+const Link: React.FC<LinkProps> = ({ href, onClick, className, children }) => {
   // En un proyecto Next.js real, importaríamos Link de next/link
   // y usaríamos <Link href={href}><a className={className}>{children}</a></Link>
-  
+
   // Esta versión funciona tanto en React Router como en Next.js básico
   return (
-    <a 
-      href={href} 
-      onClick={onClick} 
+    <a
+      href={href}
+      onClick={onClick}
       className={className}
     >
       {children}
@@ -28,11 +37,11 @@ const Header: React.FC = () => {
     const handleScroll = () => {
       // Hacer que el header sea sticky
       setSticky(window.scrollY > 50);
-      
+
       // Detección de sección activa
       const sections = ["home", "projects", "about", "testimonials", "contact"];
       let currentSection = "home";
-      
+
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -43,14 +52,14 @@ const Header: React.FC = () => {
           }
         }
       }
-      
+
       setActiveSection(currentSection);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  
+
   const scrollToSection = (sectionId: string) => (e: React.MouseEvent) => {
     e.preventDefault();
     const section = document.getElementById(sectionId);
@@ -64,9 +73,8 @@ const Header: React.FC = () => {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className={`bg-[rgba(52,29,37,1)] shadow-[0px_2px_10px_rgba(0,0,0,0.1)] self-stretch flex w-full items-center gap-5 flex-wrap justify-between px-16 py-[27px] max-md:px-5 z-50 ${
-        sticky ? "fixed top-0 animate-fadeDown" : ""
-      }`}
+      className={`bg-[rgba(52,29,37,1)] shadow-[0px_2px_10px_rgba(0,0,0,0.1)] self-stretch flex w-full items-center gap-5 flex-wrap justify-between px-16 py-[27px] max-md:px-5 z-50 ${sticky ? "fixed top-0 animate-fadeDown" : ""
+        }`}
     >
       <div className="self-stretch flex items-stretch gap-2 text-xl font-semibold">
         <img
@@ -78,9 +86,9 @@ const Header: React.FC = () => {
           {t('portfolio')}
         </div>
       </div>
-      
+
       <nav className="self-stretch flex items-stretch gap-[40px_63px] text-base text-white font-medium flex-wrap my-auto max-md:max-w-full">
-        <motion.a 
+        <motion.a
           href="#home"
           onClick={scrollToSection("home")}
           whileHover={{ scale: 1.05 }}
@@ -94,8 +102,8 @@ const Header: React.FC = () => {
           />
           <span>{t('home')}</span>
         </motion.a>
-        <motion.a 
-          href="#projects" 
+        <motion.a
+          href="#projects"
           onClick={scrollToSection("projects")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -108,8 +116,8 @@ const Header: React.FC = () => {
           />
           <span>{t('projects')}</span>
         </motion.a>
-        <motion.a 
-          href="#about" 
+        <motion.a
+          href="#about"
           onClick={scrollToSection("about")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -122,8 +130,8 @@ const Header: React.FC = () => {
           />
           <span>{t('about')}</span>
         </motion.a>
-        <motion.a 
-          href="#contact" 
+        <motion.a
+          href="#contact"
           onClick={scrollToSection("contact")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -137,7 +145,7 @@ const Header: React.FC = () => {
           <span>{t('contact')}</span>
         </motion.a>
       </nav>
-      
+
       <motion.button
         onClick={toggleLanguage}
         whileHover={{ scale: 1.1 }}
