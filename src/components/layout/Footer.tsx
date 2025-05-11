@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <footer className="bg-[rgba(52,29,37,1)] flex w-full flex-col overflow-hidden items-center ml-2.5 mt-[1185px] pt-px pb-[46px] border-[rgba(114,87,96,1)] border-t max-md:max-w-full max-md:mr-[9px] max-md:mt-10">
+    <footer className="bg-portfolio-secondary flex w-full flex-col overflow-hidden items-center ml-2.5 mt-[1185px] pt-px pb-[46px] border-portfolio-border-solid border-t max-md:max-w-full max-md:mr-[9px] max-md:mt-10">
       <div className="self-stretch flex shrink-0 h-0.5 max-md:max-w-full" />
       <div className="flex w-[1070px] max-w-full items-stretch gap-[40px_100px] flex-wrap mt-[114px] max-md:mt-10">
 
@@ -143,7 +143,7 @@ const Footer: React.FC = () => {
       </div>
 
 
-      <div className="w-[1200px] max-w-full text-sm text-white font-normal text-center mt-[93px] pt-[47px] pb-[7px] px-[70px] border-[rgba(114,87,96,1)] border-t max-md:mt-10 max-md:px-5">
+      <div className="w-[1200px] max-w-full text-sm text-white font-normal text-center mt-[93px] pt-[47px] pb-[7px] px-[70px] border-portfolio-border-solid border-t max-md:mt-10 max-md:px-5">
         © 2025 River {t('footer.rights')}
       </div>
     </footer>
@@ -151,3 +151,4 @@ const Footer: React.FC = () => {
 };
 
 export default Footer;
+
