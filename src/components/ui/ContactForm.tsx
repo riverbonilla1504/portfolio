@@ -35,13 +35,13 @@ const ContactForm: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       console.log("Form submitted:", formData);
       setIsSubmitting(false);
       setSubmitSuccess(true);
-      
+
       // Reset form after success
       setTimeout(() => {
         setSubmitSuccess(false);
@@ -61,13 +61,16 @@ const ContactForm: React.FC = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="bg-[rgba(52,29,37,1)] shadow-[0px_8px_32px_rgba(0,0,0,0.1)] border flex w-[1024px] max-w-full flex-col items-stretch text-[15px] text-[rgba(248,242,244,1)] font-medium p-[41px] rounded-2xl border-[rgba(204,160,169,0.1)] border-solid max-md:mt-10 max-md:px-5"
+      className="bg-portfolio-surface shadow-[0px_8px_32px_rgba(0,0,0,0.1)] border flex w-full max-w-[1024px] flex-col items-stretch text-[15px] text-portfolio-text font-medium p-5 md:p-[41px] rounded-2xl border-portfolio-border max-md:mt-6"
     >
-      <div className="flex w-[552px] max-w-full items-stretch gap-5 flex-wrap justify-between">
+      {/* Name & Email Labels */}
+      <div className="flex w-full md:w-[552px] max-w-full items-stretch gap-5 flex-wrap justify-between">
         <label htmlFor="name">{t('contact.name')}</label>
-        <label htmlFor="email">{t('contact.email')}</label>
+        <label htmlFor="email" className="mt-4 md:mt-0">{t('contact.email')}</label>
       </div>
-      <div className="flex items-stretch gap-6 text-[rgba(117,117,117,1)] font-normal flex-wrap mt-[15px] max-md:max-w-full">
+
+      {/* Name & Email Inputs */}
+      <div className="flex flex-col md:flex-row items-stretch gap-4 md:gap-6 text-portfolio-text/70 font-normal mt-[15px] max-md:max-w-full">
         <motion.input
           whileFocus={{ scale: 1.02 }}
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -77,7 +80,7 @@ const ContactForm: React.FC = () => {
           value={formData.name}
           onChange={handleChange}
           placeholder={t('contact.name')}
-          className="bg-[rgba(61,42,47,0.7)] overflow-hidden grow shrink-0 basis-0 w-fit p-[18px] rounded-xl border-[rgba(114,87,96,1)] border-solid border-2 focus:border-[rgba(204,160,169,1)] outline-none transition-all max-md:max-w-full max-md:pr-5"
+          className="bg-portfolio-surface/70 overflow-hidden grow w-full md:basis-0 p-[18px] rounded-xl border-portfolio-border border-solid border-2 focus:border-portfolio-accent outline-none transition-all"
           required
         />
         <motion.input
@@ -89,11 +92,13 @@ const ContactForm: React.FC = () => {
           value={formData.email}
           onChange={handleChange}
           placeholder={t('contact.email')}
-          className="bg-[rgba(61,42,47,0.7)] overflow-hidden grow shrink-0 basis-0 w-fit p-[18px] rounded-xl border-[rgba(114,87,96,1)] border-solid border-2 focus:border-[rgba(204,160,169,1)] outline-none transition-all max-md:max-w-full max-md:pr-5"
+          className="bg-portfolio-surface/70 overflow-hidden grow w-full md:basis-0 p-[18px] rounded-xl border-portfolio-border border-solid border-2 focus:border-portfolio-accent outline-none transition-all"
           required
         />
       </div>
-      <label htmlFor="subject" className="mt-12 max-md:mt-10">
+
+      {/* Subject */}
+      <label htmlFor="subject" className="mt-8 md:mt-12">
         {t('contact.subject')}
       </label>
       <motion.input
@@ -105,9 +110,11 @@ const ContactForm: React.FC = () => {
         value={formData.subject}
         onChange={handleChange}
         placeholder={t('contact.subject')}
-        className="bg-[rgba(61,42,47,0.7)] overflow-hidden text-[rgba(117,117,117,1)] font-normal mt-[15px] p-[18px] rounded-xl border-[rgba(114,87,96,1)] border-solid border-2 focus:border-[rgba(204,160,169,1)] outline-none transition-all max-md:max-w-full max-md:pr-5"
+        className="bg-portfolio-surface/70 overflow-hidden text-portfolio-text/70 font-normal mt-[15px] p-[18px] rounded-xl border-portfolio-border border-solid border-2 focus:border-portfolio-accent outline-none transition-all"
         required
       />
+
+      {/* Message */}
       <label htmlFor="message" className="mt-6">
         {t('contact.message')}
       </label>
@@ -119,15 +126,17 @@ const ContactForm: React.FC = () => {
         value={formData.message}
         onChange={handleChange}
         placeholder={t('contact.message')}
-        className="bg-[rgba(61,42,47,0.7)] overflow-hidden text-base text-[rgba(117,117,117,1)] font-normal mt-3 pt-3.5 pb-[90px] px-[18px] rounded-xl border-[rgba(114,87,96,1)] border-solid border-2 focus:border-[rgba(204,160,169,1)] outline-none transition-all max-md:max-w-full max-md:pr-5 max-md:pb-[110px]"
+        className="bg-portfolio-surface/70 overflow-hidden text-base text-portfolio-text/70 font-normal mt-3 pt-3.5 pb-[90px] px-[18px] rounded-xl border-portfolio-border border-solid border-2 focus:border-portfolio-accent outline-none transition-all h-36 md:h-auto"
         required
       />
+
+      {/* Submit Button */}
       <motion.button
         type="submit"
         disabled={isSubmitting}
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 0.97 }}
-        className="bg-[rgba(204,160,169,1)] hover:bg-[rgba(204,160,169,0.8)] flex w-full flex-col items-center text-base text-white font-bold text-center justify-center mt-6 px-[70px] py-4 rounded-xl transition-colors max-md:max-w-full max-md:px-5 disabled:opacity-70"
+        className="bg-portfolio-accent hover:bg-portfolio-accent/80 flex w-full flex-col items-center text-base text-white font-bold text-center justify-center mt-6 px-4 md:px-[70px] py-4 rounded-xl transition-colors disabled:opacity-70"
       >
         <div className="flex w-[148px] max-w-full items-stretch gap-[13px]">
           <img
@@ -145,4 +154,3 @@ const ContactForm: React.FC = () => {
 };
 
 export default ContactForm;
-

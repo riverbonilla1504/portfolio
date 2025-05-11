@@ -23,15 +23,25 @@ export default function Home() {
 
     // Agregamos la clase css para las animaciones al cargar la página
     document.documentElement.style.scrollBehavior = "smooth";
+    // Lock horizontal scroll
+    document.body.style.overflowX = "hidden";
+    document.documentElement.style.overflowX = "hidden"; // Also lock overflow on html element
+    document.body.style.width = "100%"; // Force body to be 100% width
 
     // Scroll to the top on mount
     window.scrollTo(0, 0);
+    return () => {
+      // Cleanup when component unmounts
+      document.body.style.overflowX = "";
+      document.documentElement.style.overflowX = "";
+      document.body.style.width = "";
+    };
   }, []);
 
   return (
     <LanguageProvider initialLanguage={initialLanguage}>
-      <div className="bg-[rgba(61,42,47,1)] pt-2">
-        <div className="flex w-full flex-col items-center px-[9px] max-md:max-w-full">
+      <div className="bg-portfolio-primary pt-2 overflow-x-hidden w-full font-poppins">
+        <div className="flex w-full flex-col items-center">
           <Header />
           <section id="home">
             <Hero />

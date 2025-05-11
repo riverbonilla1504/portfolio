@@ -20,6 +20,7 @@
   --color-portfolio-ring: hsl(342, 16%, 20%);
   --color-portfolio-info: hsl(345, 29%, 70%);
   --color-portfolio-info-foreground: hsl(345, 29%, 87%);
+  --color-portfolio-text: hsl(345, 29%, 87%);
   --animate-wiggle: wiggle 1s ease-in-out infinite;
   @keyframes wiggle {
     0%,
@@ -30,6 +31,11 @@
       transform: rotate(3deg);
     }
   }
+}
+html, body {
+  background-color: var(--color-portfolio-background);
+  color: var(--color-portfolio-background);
+  font-family: var(--font-poppins);
 }
 @layer utilities {
   .ease-custom {

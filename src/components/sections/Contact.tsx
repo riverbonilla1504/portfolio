@@ -3,13 +3,12 @@ import React from "react";
 import ContactForm from "../ui/ContactForm";
 import { motion } from "framer-motion";
 import { useTranslation } from "../../hooks/useTranslation";
-
 const Contact: React.FC = () => {
   const { t } = useTranslation();
-  
+
   return (
-    <section id="contact" className="bg-[rgba(61,42,47,1)] flex flex-col items-center py-16" aria-label="Contact">
-      <motion.h2 
+    <section id="contact" className="bg-portfolio-primary flex flex-col items-center py-16" aria-label="Contact">
+      <motion.h2
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -17,25 +16,25 @@ const Contact: React.FC = () => {
       >
         {t('contact.title')}
       </motion.h2>
-      
-      <motion.p 
+
+      <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.6 }}
-        className="text-[rgba(229,214,218,1)] text-2xl font-normal text-center mt-[51px] max-md:max-w-full max-md:mt-10"
+        className="text-portfolio-text text-2xl font-normal text-center mt-[51px] max-md:max-w-full max-md:mt-10"
       >
         {t('contact.subtitle')}
       </motion.p>
-      
-      <motion.p 
+
+      <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.6 }}
-        className="text-[rgba(229,214,218,1)] text-lg font-normal leading-[29px] text-center mt-6 max-md:max-w-full"
+        className="text-portfolio-text text-lg font-normal leading-[29px] text-center m-6 max-md:max-w-full"
       >
         {t('contact.description')}
       </motion.p>
-      
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -43,25 +42,25 @@ const Contact: React.FC = () => {
       >
         <ContactForm />
       </motion.div>
-      
-      <motion.p 
+
+      <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.6 }}
-        className="text-[rgba(229,214,218,1)] text-lg font-normal text-center mt-16 max-md:mt-10"
+        className="text-portfolio-text text-lg font-normal text-center mt-16 max-md:mt-10"
       >
         {t('contact.or')}
       </motion.p>
-      
-      <motion.div 
+
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6, duration: 0.6 }}
         className="flex w-[222px] max-w-full items-stretch gap-5 justify-between mt-[29px]"
       >
-        <motion.a 
-          href="https://github.com/" 
-          target="_blank" 
+        <motion.a
+          href="https://github.com/"
+          target="_blank"
           rel="noopener noreferrer"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
@@ -72,9 +71,9 @@ const Contact: React.FC = () => {
             className="aspect-[1] object-contain w-[58px] shrink-0 rounded-[29px]"
           />
         </motion.a>
-        <motion.a 
-          href="https://linkedin.com/" 
-          target="_blank" 
+        <motion.a
+          href="https://linkedin.com/"
+          target="_blank"
           rel="noopener noreferrer"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
@@ -85,9 +84,9 @@ const Contact: React.FC = () => {
             className="aspect-[1] object-contain w-[58px] shrink-0 rounded-[29px]"
           />
         </motion.a>
-        <motion.a 
-          href="https://twitter.com/" 
-          target="_blank" 
+        <motion.a
+          href="https://twitter.com/"
+          target="_blank"
           rel="noopener noreferrer"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
@@ -104,4 +103,3 @@ const Contact: React.FC = () => {
 };
 
 export default Contact;
-

@@ -184,7 +184,7 @@ const translations: Translations = {
   },
   es: {
     // Header
-    portfolio: 'River Alejandro Bonilla Florez',
+    portfolio: 'River Bonilla',
     home: 'Inicio',
     projects: 'Proyectos',
     about: 'Sobre mí',

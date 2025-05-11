@@ -2,10 +2,12 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "../../hooks/useTranslation";
+import { useIsMobile } from "../../hooks/use-mobile";
 
 const Testimonials: React.FC = () => {
   const { t } = useTranslation();
   const [activeIndex, setActiveIndex] = useState(0);
+  const isMobile = useIsMobile();
 
   const testimonials = [
     {
@@ -40,71 +42,73 @@ const Testimonials: React.FC = () => {
   };
 
   return (
-    <section id="testimonials" className="bg-[rgba(61,42,47,1)] flex flex-col items-center py-16 px-4">
-      <motion.h2 
+    <section id="testimonials" className="bg-portfolio-primary flex flex-col items-center py-16 px-4">
+      <motion.h2
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-[56px] font-bold text-center text-white mb-12 max-md:text-[40px]"
+        className="text-4xl md:text-[56px] font-bold text-center text-white mb-12 max-md:mb-8 font-poppins"
       >
         {t('testimonials.title')}
       </motion.h2>
 
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.8 }}
         className="w-full max-w-4xl relative"
       >
         <div className="flex overflow-hidden">
-          <motion.div 
+          <motion.div
             key={activeIndex}
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -100 }}
             transition={{ duration: 0.5 }}
-            className="bg-[rgba(52,29,37,1)] p-8 rounded-2xl shadow-lg w-full"
+            className="bg-portfolio-secondary p-6 md:p-8 rounded-2xl shadow-lg w-full"
           >
             <div className="flex flex-col items-center text-center">
-              <img 
-                src={testimonials[activeIndex].image} 
-                alt={testimonials[activeIndex].name} 
-                className="w-20 h-20 rounded-full object-cover mb-4 border-2 border-[rgba(204,160,169,1)]"
+              <img
+                src={testimonials[activeIndex].image}
+                alt={testimonials[activeIndex].name}
+                className="w-16 md:w-20 h-16 md:h-20 rounded-full object-cover mb-4 border-2 border-portfolio-accent"
               />
-              <p className="text-[rgba(229,214,218,1)] text-lg italic mb-6 leading-relaxed">"{testimonials[activeIndex].text}"</p>
-              <h4 className="text-white font-semibold text-xl">{testimonials[activeIndex].name}</h4>
-              <p className="text-[rgba(204,160,169,1)]">{testimonials[activeIndex].role}</p>
+              <p className="text-portfolio-text text-base md:text-lg italic mb-6 leading-relaxed font-poppins">"{testimonials[activeIndex].text}"</p>
+              <h4 className="text-white font-semibold text-xl font-poppins">{testimonials[activeIndex].name}</h4>
+              <p className="text-portfolio-accent font-poppins">{testimonials[activeIndex].role}</p>
             </div>
           </motion.div>
         </div>
 
-        <div className="flex justify-between mt-8">
-          <button 
+        <div className="flex justify-between items-center mt-8">
+          <button
             onClick={prevTestimonial}
-            className="bg-[rgba(204,160,169,0.2)] hover:bg-[rgba(204,160,169,0.4)] transition-all p-3 rounded-full text-white"
+            className="bg-portfolio-accent/20 hover:bg-portfolio-accent/40 transition-all p-2 md:p-3 rounded-full text-white"
+            aria-label="Previous testimonial"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="m15 18-6-6 6-6"/>
+            <svg xmlns="http://www.w3.org/2000/svg" width={isMobile ? "20" : "24"} height={isMobile ? "20" : "24"} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="m15 18-6-6 6-6" />
             </svg>
           </button>
-          
+
           <div className="flex space-x-2">
             {testimonials.map((_, idx) => (
-              <button 
-                key={idx} 
+              <button
+                key={idx}
                 onClick={() => setActiveIndex(idx)}
-                className={`w-3 h-3 rounded-full ${idx === activeIndex ? 'bg-[rgba(204,160,169,1)]' : 'bg-[rgba(204,160,169,0.3)]'}`}
+                className={`w-3 h-3 rounded-full ${idx === activeIndex ? 'bg-portfolio-accent' : 'bg-portfolio-accent/30'}`}
                 aria-label={`Go to testimonial ${idx + 1}`}
               />
             ))}
           </div>
-          
-          <button 
+
+          <button
             onClick={nextTestimonial}
-            className="bg-[rgba(204,160,169,0.2)] hover:bg-[rgba(204,160,169,0.4)] transition-all p-3 rounded-full text-white"
+            className="bg-portfolio-accent/20 hover:bg-portfolio-accent/40 transition-all p-2 md:p-3 rounded-full text-white"
+            aria-label="Next testimonial"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="m9 18 6-6-6-6"/>
+            <svg xmlns="http://www.w3.org/2000/svg" width={isMobile ? "20" : "24"} height={isMobile ? "20" : "24"} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="m9 18 6-6-6-6" />
             </svg>
           </button>
         </div>
@@ -114,4 +118,3 @@ const Testimonials: React.FC = () => {
 };
 
 export default Testimonials;
-

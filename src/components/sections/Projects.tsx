@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "../../hooks/useTranslation";
-
+import { useIsMobile } from "../../hooks/use-mobile";
 interface Project {
   id: string;
   name: string;
@@ -12,10 +12,10 @@ interface Project {
   url: string;
   image: string;
 }
-
 const Projects: React.FC = () => {
   const { t } = useTranslation();
   const [activeProject, setActiveProject] = useState<string>("seminario");
+  const isMobile = useIsMobile();
 
   const projects: Project[] = [
     {
@@ -52,61 +52,64 @@ const Projects: React.FC = () => {
   return (
     <section
       id="projects"
-      className="bg-[rgba(61,42,47,1)] self-stretch flex w-full flex-col items-center justify-center px-[70px] py-[169px] max-md:max-w-full max-md:px-5 max-md:py-[100px]"
+      className="bg-portfolio-primary self-stretch flex w-full flex-col items-center justify-center px-4 sm:px-8 lg:px-[70px] py-16 lg:py-[169px]"
       aria-label="Projects"
     >
-      <div className="w-full max-w-[1409px] max-md:max-w-full">
-        <div className="gap-5 flex max-md:flex-col max-md:items-stretch">
-          <motion.div 
+      <div className="w-full max-w-[1409px]">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-5">
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="w-[34%] max-md:w-full max-md:ml-0"
+            className="w-full lg:w-[34%]"
           >
-            <div className="flex w-full flex-col self-stretch items-stretch my-auto max-md:mt-10">
-              <motion.h2 
+            <div className="flex w-full flex-col self-stretch items-stretch">
+              <motion.h2
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="text-[40px] font-bold leading-[1.2] text-white"
+                className="text-3xl md:text-[40px] font-bold leading-[1.2] text-white"
               >
                 {t('my-projects')}
               </motion.h2>
-              <div className="text-[rgba(229,214,218,1)] text-xl font-normal mt-[29px]">
+              <div className="text-portfolio-text text-lg md:text-xl font-normal mt-[29px]">
                 {t('explore-portfolio')}
               </div>
-              <motion.p 
+              <motion.p
                 key={currentProject.id + "-desc"}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="text-[rgba(229,214,218,1)] text-base font-normal leading-[26px] mt-[39px] max-md:mr-[5px]"
+                className="text-portfolio-text text-base font-normal leading-[26px] mt-[39px]"
               >
                 {currentProject.description}
               </motion.p>
-              
-              <motion.div 
+
+              <motion.div
                 key={currentProject.id + "-features"}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
                 className="mt-[35px]"
               >
-                <div className="flex items-stretch gap-2.5 text-[rgba(229,214,218,1)] font-normal max-md:ml-[3px]">
-                  <div className="text-xl text-center mt-[13px]">✨</div>
-                  <div className="text-base leading-6 grow shrink w-[370px] basis-auto">
+                <div className="flex items-stretch gap-[11px] text-portfolio-text font-normal mt-[33px]">
+                  <div className="text-xl text-center">🔧</div>
+                  <div className="text-base basis-auto grow shrink">
                     {currentProject.features[0]}
                   </div>
                 </div>
-                <div className="text-[rgba(229,214,218,1)] text-base font-normal ml-[35px] mr-[30px] mt-10 max-md:mx-2.5">
-                  {currentProject.features[1]}
+                <div className="flex items-stretch gap-[11px] text-portfolio-text font-normal mt-[33px]">
+                  <div className="text-xl text-center">✨</div>
+                  <div className="text-base basis-auto grow shrink">
+                    {currentProject.features[1]}
+                  </div>
                 </div>
-                <div className="flex items-stretch gap-[11px] text-[rgba(229,214,218,1)] font-normal mt-[39px] max-md:ml-1 max-md:mr-0.5">
+                <div className="flex items-stretch gap-[11px] text-portfolio-text font-normal mt-[33px]">
                   <div className="text-xl text-center">💻</div>
-                  <div className="text-base grow shrink w-[366px] basis-auto">
+                  <div className="text-base grow shrink basis-auto">
                     {currentProject.features[2]}
                   </div>
                 </div>
-                <div className="flex items-stretch gap-[11px] text-[rgba(229,214,218,1)] font-normal mt-[33px] max-md:ml-1">
+                <div className="flex items-stretch gap-[11px] text-portfolio-text font-normal mt-[33px]">
                   <div className="text-xl text-center">🎯</div>
                   <div className="text-base basis-auto grow shrink">
                     {currentProject.features[3]}
@@ -114,25 +117,25 @@ const Projects: React.FC = () => {
                 </div>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6 }}
-                className="flex items-stretch gap-[35px] whitespace-nowrap mt-12 max-md:mt-10"
+                className="flex items-stretch gap-[35px] whitespace-nowrap mt-12"
               >
                 <div className="flex flex-col items-stretch">
-                  <div className="text-[rgba(204,160,169,1)] text-[32px] font-bold self-center">
+                  <div className="text-portfolio-accent text-[32px] font-bold self-center">
                     {projects.length}
                   </div>
-                  <div className="text-[rgba(229,214,218,1)] text-sm font-normal mt-4">
+                  <div className="text-portfolio-text text-sm font-normal mt-4">
                     {t('projects-count')}
                   </div>
                 </div>
                 <div className="flex flex-col items-stretch">
-                  <div className="text-[rgba(204,160,169,1)] text-[32px] font-bold self-center">
+                  <div className="text-portfolio-accent text-[32px] font-bold self-center">
                     {currentProject.technologies.length}
                   </div>
-                  <div className="text-[rgba(229,214,218,1)] text-sm font-normal mt-4">
+                  <div className="text-portfolio-text text-sm font-normal mt-4">
                     {t('technologies-count')}
                   </div>
                 </div>
@@ -140,34 +143,33 @@ const Projects: React.FC = () => {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="w-[66%] ml-5 max-md:w-full max-md:ml-0"
+            className="w-full lg:w-[66%]"
           >
-            <div className="bg-[rgba(52,29,37,1)] shadow-[0px_20px_40px_rgba(0,0,0,0.1)] grow w-full rounded-xl max-md:max-w-full max-md:mt-10">
-              <div className="bg-[rgba(52,29,37,1)] flex w-full flex-col px-4 py-[17px] rounded-[12px_12px_0px_0px] max-md:max-w-full">
+            <div className="bg-portfolio-secondary shadow-[0px_20px_40px_rgba(0,0,0,0.1)] grow w-full rounded-xl">
+              <div className="bg-portfolio-secondary flex w-full flex-col px-4 py-[17px] rounded-[12px_12px_0px_0px]">
                 <div className="flex items-stretch gap-2">
                   <div className="bg-[rgba(255,95,87,1)] flex w-3 shrink-0 h-3 rounded-md" />
                   <div className="bg-[rgba(255,189,46,1)] flex w-3 shrink-0 h-3 rounded-md" />
                   <div className="bg-[rgba(40,201,64,1)] flex w-3 shrink-0 h-3 rounded-md" />
                 </div>
-                <div className="flex items-stretch gap-1.5 text-[13px] text-[rgba(229,214,218,1)] font-normal whitespace-nowrap text-center mt-2 overflow-x-auto">
+                <div className="flex items-stretch gap-1.5 text-[13px] text-portfolio-text font-normal whitespace-nowrap text-center mt-2 overflow-x-auto">
                   <div className="flex items-stretch gap-0.5 grow shrink basis-auto">
                     {projects.map((project) => (
-                      <button 
+                      <button
                         key={project.id}
                         onClick={() => setActiveProject(project.id)}
-                        className={`flex items-stretch gap-[15px] px-[22px] py-2.5 rounded-[8px_8px_0px_0px] max-md:pl-5 transition-colors ${
-                          activeProject === project.id 
-                            ? "bg-[rgba(61,42,47,1)] text-[rgba(248,242,244,1)]" 
-                            : "bg-[rgba(71,53,57,1)]"
-                        }`}
+                        className={`flex items-stretch gap-[15px] px-3 sm:px-[22px] py-2.5 rounded-[8px_8px_0px_0px] transition-colors ${activeProject === project.id
+                          ? "bg-portfolio-primary text-portfolio-text"
+                          : "bg-portfolio-surface"
+                          }`}
                       >
                         <span>{project.name}</span>
                         <img
-                          src={activeProject === project.id 
+                          src={activeProject === project.id
                             ? "https://cdn.builder.io/api/v1/image/assets/TEMP/1f3b6851a203c568ea16edba817764259136a0d3?placeholderIfAbsent=true"
                             : "https://cdn.builder.io/api/v1/image/assets/TEMP/684d53af8d092f9d351bccb89a2a501b06659d72?placeholderIfAbsent=true"
                           }
@@ -185,7 +187,7 @@ const Projects: React.FC = () => {
                     />
                   </button>
                 </div>
-                <div className="bg-[rgba(61,42,47,1)] self-stretch flex items-stretch gap-6 flex-wrap mt-2 px-2 py-[9px] rounded-md">
+                <div className="bg-portfolio-primary self-stretch flex items-stretch gap-6 flex-wrap mt-2 px-2 py-[9px] rounded-md">
                   <div className="flex items-stretch gap-2">
                     <img
                       src="https://cdn.builder.io/api/v1/image/assets/TEMP/1189f2f8c2baf838a071afe5f0d6a5aadcacda8a?placeholderIfAbsent=true"
@@ -203,9 +205,9 @@ const Projects: React.FC = () => {
                       className="aspect-[0.89] object-contain w-6 rounded shrink-0"
                     />
                   </div>
-                  <div className="text-[rgba(229,214,218,1)] text-sm font-normal grow shrink w-[622px] basis-auto max-md:max-w-full">
+                  <div className="text-portfolio-text text-sm font-normal grow shrink basis-auto overflow-hidden">
                     https://
-                    <span className="text-[rgba(204,160,169,1)]">
+                    <span className="text-portfolio-accent">
                       {currentProject.url}
                     </span>
                   </div>
@@ -218,7 +220,7 @@ const Projects: React.FC = () => {
                 transition={{ duration: 0.5 }}
                 src={currentProject.image}
                 alt={`${currentProject.name} screenshot`}
-                className="aspect-[1.44] object-contain w-full rounded-[0px_0px_12px_12px] max-md:max-w-full"
+                className="aspect-[1.44] object-contain w-full rounded-[0px_0px_12px_12px]"
               />
             </div>
           </motion.div>
@@ -229,4 +231,3 @@ const Projects: React.FC = () => {
 };
 
 export default Projects;
-

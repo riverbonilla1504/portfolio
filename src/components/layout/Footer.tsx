@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <footer className="bg-portfolio-secondary flex w-full flex-col overflow-hidden items-center ml-2.5 mt-[1185px] pt-px pb-[46px] border-portfolio-border-solid border-t max-md:max-w-full max-md:mr-[9px] max-md:mt-10">
+    <footer className="bg-portfolio-secondary flex w-full flex-col overflow-hidden items-center  pb-[46px] border-portfolio-border-solid border-t max-md:max-w-full max-md:mr-[9px] max-md:mt-10">
       <div className="self-stretch flex shrink-0 h-0.5 max-md:max-w-full" />
       <div className="flex w-[1070px] max-w-full items-stretch gap-[40px_100px] flex-wrap mt-[114px] max-md:mt-10">
 

@@ -2,10 +2,12 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "../../hooks/useTranslation";
+import { useIsMobile } from "../../hooks/use-mobile";
 
 const About: React.FC = () => {
   const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState("skills");
+  const isMobile = useIsMobile();
 
   const tabContents = {
     skills: {
@@ -107,127 +109,124 @@ const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="bg-[rgba(61,42,47,1)] flex flex-col items-center py-16" aria-label="About">
-      <div className="bg-[rgba(52,29,37,1)] flex w-2.5 shrink-0 h-2.5 ml-[33px] mt-8 rounded-[5px] max-md:ml-2.5" aria-hidden="true" />
-      
-      <motion.h2 
+    <section id="about" className="bg-portfolio-primary flex flex-col items-center py-16 px-4" aria-label="About">
+      <div className="bg-portfolio-secondary flex w-2.5 shrink-0 h-2.5 mx-auto mt-8 rounded-[5px]" aria-hidden="true" />
+
+      <motion.h2
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-[rgba(248,242,244,1)] text-[56px] font-bold text-center mt-9 max-md:text-[40px]"
+        className="text-portfolio-text text-4xl md:text-[56px] font-bold text-center mt-9 font-poppins"
       >
         River
       </motion.h2>
-      
-      <motion.div 
+
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.6 }}
-        className="w-[264px] max-w-full overflow-hidden text-2xl text-[rgba(229,214,218,1)] font-normal text-center mt-[45px] pb-3 px-1 max-md:mt-10"
+        className="w-full max-w-[264px] overflow-hidden text-xl md:text-2xl text-portfolio-text font-normal text-center mt-10 pb-3 font-poppins"
       >
         {t('about.role')}
       </motion.div>
-      
-      {/* Tabs */}
-      <div className="flex w-[1036px] max-w-full items-stretch gap-4 text-[13px] text-white font-normal text-center flex-wrap mt-[65px] overflow-x-auto px-4 max-md:mt-10">
-        {tabs.map((tab) => (
-          <motion.button
-            key={tab.id}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setActiveTab(tab.id)}
-            className={`flex items-stretch gap-[9px] px-[25px] py-[13px] rounded-lg max-md:px-5 transition-colors ${
-              activeTab === tab.id
-                ? "bg-[rgba(61,42,47,1)]"
-                : "bg-[rgba(52,29,37,1)] hover:bg-[rgba(71,53,57,1)]"
-            }`}
-            aria-selected={activeTab === tab.id}
-          >
-            {tab.icon && (
-              <img
-                src={tab.icon}
-                alt={`${tab.label} icon`}
-                className="aspect-[1] object-contain w-5 shrink-0"
-              />
-            )}
-            <span className="basis-auto">{tab.label}</span>
-          </motion.button>
-        ))}
+
+      {/* Tabs - Improved scrollable container for mobile */}
+      <div className="w-full mt-8 md:mt-[65px]">
+        <div className="flex flex-wrap justify-center gap-2 md:gap-4 text-[13px] text-white font-normal p-2">
+          {tabs.map((tab) => (
+            <motion.button
+              key={tab.id}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setActiveTab(tab.id)}
+              className={`flex items-center gap-[9px] px-3 md:px-[25px] py-2 md:py-[13px] rounded-lg transition-colors ${activeTab === tab.id
+                ? "bg-portfolio-primary"
+                : "bg-portfolio-secondary hover:bg-portfolio-surface/50"
+                }`}
+              aria-selected={activeTab === tab.id}
+            >
+              {tab.icon && (
+                <img
+                  src={tab.icon}
+                  alt={`${tab.label} icon`}
+                  className="aspect-[1] object-contain w-5 shrink-0"
+                />
+              )}
+              <span className="basis-auto font-poppins">{tab.label}</span>
+            </motion.button>
+          ))}
+        </div>
       </div>
 
       {/* Skills Content */}
       {activeTab === "skills" && (
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="w-[1201px] max-w-full mt-12 max-md:mt-10"
+          className="w-full max-w-[1201px] mt-12 max-md:mt-8 px-2"
         >
-          <div className="gap-5 flex max-md:flex-col max-md:items-stretch">
-            <div className="w-6/12 max-md:w-full max-md:ml-0">
-              <div className="flex grow flex-col text-base text-slate-200 font-normal pl-6 pr-20 py-[51px] rounded-2xl border border-[rgba(114,87,96,0.3)] bg-[rgba(52,29,37,0.3)] max-md:max-w-full max-md:mt-[31px] max-md:px-5">
-                <h3 className="text-white text-xl font-semibold flex items-center">
-                  <span className="mr-2 text-[rgba(204,160,169,1)]">📱</span>
+          <div className="flex flex-col md:flex-row gap-5">
+            <div className="w-full md:w-1/2">
+              <div className="flex grow flex-col text-base text-slate-200 font-normal p-4 md:px-6 md:py-[51px] rounded-2xl border border-portfolio-border bg-portfolio-surface overflow-hidden">
+                <h3 className="text-white text-xl font-semibold flex items-center font-poppins">
+                  <span className="mr-2 text-portfolio-accent">📱</span>
                   {t('about.skills.frontend.title')}
                 </h3>
-                <ul className="mt-[26px] space-y-3.5 list-disc pl-5">
-                  {typeof tabContents.skills.frontend === 'string' 
+                <ul className="mt-[26px] space-y-3.5 list-disc pl-5 overflow-y-auto max-h-[300px] font-poppins">
+                  {typeof tabContents.skills.frontend === 'string'
                     ? tabContents.skills.frontend.split(', ').map((skill, index) => (
-                        <motion.li 
-                          key={index}
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.3 + index * 0.1 }}
-                          className="max-md:ml-2.5"
-                        >
-                          {skill}
-                        </motion.li>
-                      ))
+                      <motion.li
+                        key={index}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.3 + index * 0.1 }}
+                      >
+                        {skill}
+                      </motion.li>
+                    ))
                     : (Array.isArray(tabContents.skills.frontend) ? tabContents.skills.frontend : []).map((skill, index) => (
-                        <motion.li 
-                          key={index}
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.3 + index * 0.1 }}
-                          className="max-md:ml-2.5"
-                        >
-                          {skill}
-                        </motion.li>
-                      ))
+                      <motion.li
+                        key={index}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.3 + index * 0.1 }}
+                      >
+                        {skill}
+                      </motion.li>
+                    ))
                   }
                 </ul>
               </div>
             </div>
-            <div className="w-6/12 ml-5 max-md:w-full max-md:ml-0">
-              <div className="flex grow flex-col text-base text-slate-200 font-normal pl-6 pr-20 py-[49px] rounded-2xl border border-[rgba(114,87,96,0.3)] bg-[rgba(52,29,37,0.3)] max-md:max-w-full max-md:mt-[31px] max-md:px-5">
-                <h3 className="text-white text-xl font-semibold flex items-center">
-                  <span className="mr-2 text-[rgba(204,160,169,1)]">⚙️</span>
+            <div className="w-full md:w-1/2 mt-5 md:mt-0">
+              <div className="flex grow flex-col text-base text-slate-200 font-normal p-4 md:px-6 md:py-[49px] rounded-2xl border border-portfolio-border bg-portfolio-surface overflow-hidden">
+                <h3 className="text-white text-xl font-semibold flex items-center font-poppins">
+                  <span className="mr-2 text-portfolio-accent">⚙️</span>
                   {t('about.skills.backend.title')}
                 </h3>
-                <ul className="mt-[26px] space-y-4 list-disc pl-5">
-                  {typeof tabContents.skills.backend === 'string' 
+                <ul className="mt-[26px] space-y-4 list-disc pl-5 overflow-y-auto max-h-[300px] font-poppins">
+                  {typeof tabContents.skills.backend === 'string'
                     ? tabContents.skills.backend.split(', ').map((skill, index) => (
-                        <motion.li 
-                          key={index}
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.3 + index * 0.1 }}
-                          className="max-md:ml-2.5"
-                        >
-                          {skill}
-                        </motion.li>
-                      ))
+                      <motion.li
+                        key={index}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.3 + index * 0.1 }}
+                      >
+                        {skill}
+                      </motion.li>
+                    ))
                     : (Array.isArray(tabContents.skills.backend) ? tabContents.skills.backend : []).map((skill, index) => (
-                        <motion.li 
-                          key={index}
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.3 + index * 0.1 }}
-                          className="max-md:ml-2.5"
-                        >
-                          {skill}
-                        </motion.li>
-                      ))
+                      <motion.li
+                        key={index}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.3 + index * 0.1 }}
+                      >
+                        {skill}
+                      </motion.li>
+                    ))
                   }
                 </ul>
               </div>
@@ -238,28 +237,28 @@ const About: React.FC = () => {
 
       {/* Experience Content */}
       {activeTab === "experience" && (
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="w-[1201px] max-w-full mt-12 max-md:mt-10 px-4"
+          className="w-full max-w-[1201px] mt-12 max-md:mt-8 px-2"
         >
-          <div className="bg-[rgba(52,29,37,0.3)] border border-[rgba(114,87,96,0.3)] rounded-2xl p-8 max-md:p-4">
-            <div className="space-y-8">
+          <div className="bg-portfolio-surface border border-portfolio-border rounded-2xl p-4 md:p-8 overflow-hidden">
+            <div className="space-y-8 overflow-y-auto max-h-[500px] pr-2">
               {tabContents.experience.map((exp, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 + index * 0.15 }}
-                  className="border-b border-[rgba(114,87,96,0.3)] pb-6 last:border-0"
+                  className="border-b border-portfolio-border pb-6 last:border-0"
                 >
-                  <h3 className="text-white text-xl font-semibold">{exp.title}</h3>
-                  <div className="flex justify-between items-center mt-2">
-                    <p className="text-[rgba(204,160,169,1)] font-medium">{exp.company}</p>
-                    <span className="text-[rgba(229,214,218,0.7)] text-sm">{exp.period}</span>
+                  <h3 className="text-white text-xl font-semibold font-poppins">{exp.title}</h3>
+                  <div className="flex flex-col md:flex-row md:justify-between md:items-center mt-2">
+                    <p className="text-portfolio-accent font-medium font-poppins">{exp.company}</p>
+                    <span className="text-portfolio-text/70 text-sm mt-1 md:mt-0 font-poppins">{exp.period}</span>
                   </div>
-                  <p className="text-[rgba(229,214,218,1)] mt-3">{exp.description}</p>
+                  <p className="text-portfolio-text mt-3 font-poppins">{exp.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -269,28 +268,28 @@ const About: React.FC = () => {
 
       {/* Education Content */}
       {activeTab === "education" && (
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="w-[1201px] max-w-full mt-12 max-md:mt-10 px-4"
+          className="w-full max-w-[1201px] mt-12 max-md:mt-8 px-2"
         >
-          <div className="bg-[rgba(52,29,37,0.3)] border border-[rgba(114,87,96,0.3)] rounded-2xl p-8 max-md:p-4">
-            <div className="space-y-8">
+          <div className="bg-portfolio-surface border border-portfolio-border rounded-2xl p-4 md:p-8 overflow-hidden">
+            <div className="space-y-8 overflow-y-auto max-h-[500px] pr-2">
               {tabContents.education.map((edu, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 + index * 0.15 }}
-                  className="border-b border-[rgba(114,87,96,0.3)] pb-6 last:border-0"
+                  className="border-b border-portfolio-border pb-6 last:border-0"
                 >
-                  <h3 className="text-white text-xl font-semibold">{edu.degree}</h3>
-                  <div className="flex justify-between items-center mt-2">
-                    <p className="text-[rgba(204,160,169,1)] font-medium">{edu.institution}</p>
-                    <span className="text-[rgba(229,214,218,0.7)] text-sm">{edu.period}</span>
+                  <h3 className="text-white text-xl font-semibold font-poppins">{edu.degree}</h3>
+                  <div className="flex flex-col md:flex-row md:justify-between md:items-center mt-2">
+                    <p className="text-portfolio-accent font-medium font-poppins">{edu.institution}</p>
+                    <span className="text-portfolio-text/70 text-sm mt-1 md:mt-0 font-poppins">{edu.period}</span>
                   </div>
-                  <p className="text-[rgba(229,214,218,1)] mt-3">{edu.description}</p>
+                  <p className="text-portfolio-text mt-3 font-poppins">{edu.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -298,52 +297,52 @@ const About: React.FC = () => {
         </motion.div>
       )}
 
-      {/* Interests Content */}
+      {/* Interests Content - Fixed for desktop grid */}
       {activeTab === "interests" && (
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="w-[1201px] max-w-full mt-12 max-md:mt-10 px-4"
+          className="w-full max-w-[1201px] mt-12 max-md:mt-8 px-2"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 overflow-hidden">
             {tabContents.interests.map((interest, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2 + index * 0.1 }}
-                className="bg-[rgba(52,29,37,0.3)] border border-[rgba(114,87,96,0.3)] rounded-xl p-6 hover:bg-[rgba(52,29,37,0.5)] transition-all"
+                className="bg-portfolio-surface border border-portfolio-border rounded-xl p-6 hover:bg-portfolio-surface/50 transition-all"
               >
                 <div className="text-4xl mb-3">{interest.icon}</div>
-                <h3 className="text-white text-lg font-semibold mb-2">{interest.title}</h3>
-                <p className="text-[rgba(229,214,218,1)] text-sm">{interest.description}</p>
+                <h3 className="text-white text-lg font-semibold mb-2 font-poppins">{interest.title}</h3>
+                <p className="text-portfolio-text text-sm font-poppins">{interest.description}</p>
               </motion.div>
             ))}
           </div>
         </motion.div>
       )}
 
-      {/* Aspirations Content */}
+      {/* Aspirations Content - Fixed for desktop grid */}
       {activeTab === "aspirations" && (
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="w-[1201px] max-w-full mt-12 max-md:mt-10 px-4"
+          className="w-full max-w-[1201px] mt-12 max-md:mt-8 px-2"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 overflow-hidden">
             {tabContents.aspirations.map((aspiration, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 + index * 0.15 }}
-                className="bg-[rgba(52,29,37,0.3)] border border-[rgba(114,87,96,0.3)] rounded-xl p-6 hover:bg-[rgba(52,29,37,0.5)] transition-all"
+                className="bg-portfolio-surface border border-portfolio-border rounded-xl p-6 hover:bg-portfolio-surface/50 transition-all"
               >
                 <div className="text-4xl mb-3">{aspiration.icon}</div>
-                <h3 className="text-white text-lg font-semibold mb-2">{aspiration.title}</h3>
-                <p className="text-[rgba(229,214,218,1)] text-sm">{aspiration.description}</p>
+                <h3 className="text-white text-lg font-semibold mb-2 font-poppins">{aspiration.title}</h3>
+                <p className="text-portfolio-text text-sm font-poppins">{aspiration.description}</p>
               </motion.div>
             ))}
           </div>
@@ -354,4 +353,3 @@ const About: React.FC = () => {
 };
 
 export default About;
-
