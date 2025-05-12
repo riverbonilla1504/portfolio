@@ -1,31 +1,69 @@
-export default function Home() {
-  return (
-    <main className="flex flex-col items-center justify-center h-screen w-screen bg-accent-foreground ">
-      <h1 className="text-5xl font-poppins font-bold text-foreground mb-8">River Alejandro Bonilla Florez</h1>
-      <section className="flex flex-row items-center justify-center w-240 h-100 rounded-3xl shadow-lg p-4 bg-white">
-        <section className="flex flex-col items-center justify-center w-60 h-72">
-          <figure className="shadow-lg bg-background w-50 h-50 rounded-3xl border border-border ring-2 ring-ring shadow-accent">
-          </figure>
-          <h1 className="font-poppins text-xl text-primary mt-2  p-1 mb-1 font-semibold">background</h1>
-        </section>
-        <section className="flex flex-col items-center justify-center w-60 h-72">
-          <figure className="shadow-lg  bg-secondary w-50 h-50 rounded-3xl flex shadow-primary-hover items-center justify-center border-2 border-border">
-          </figure>
-          <h1 className="font-poppins text-xl text-primary mt-2 p-1 mb-1 font-semibold">secondary</h1>
-        </section>
-        <section className="flex flex-col items-center justify-center w-60 h-72">   
-          <figure className="shadow-lg bg-accent w-50 h-50 rounded-3xl shadow-border">
-          </figure>
-          <h1 className="font-poppins text-xl text-primary mt-2 p-1 mb-1 font-semibold">accent</h1>
-        </section>
-        <section className="flex flex-col items-center justify-center w-60 h-72"> 
-          <figure className=" w-50 h-50 bg-primary rounded-3xl shadow-lg shadow-input">
-          </figure>
-          <h1 className="font-poppins text-xl text-primary mt-2 p-1 mb-1 font-semibold  ">primary</h1>
-        </section>
-      </section>
+"use client"
 
-      
-    </main>
+import { useEffect, useState } from "react";
+import Header from "@/components/layout/Header";
+import Hero from "@/components/sections/Hero";
+import Projects from "@/components/sections/Projects";
+import About from "@/components/sections/About";
+import Testimonials from "@/components/sections/Testimonials";
+import Contact from "@/components/sections/Contact";
+import Footer from "@/components/layout/Footer";
+import { LanguageProvider } from "@/contexts/LanguageContext";
+import { ThemeProvider } from "@/contexts/ThemeContext";
+import AnimatedBackground from "@/components/background/AnimatedBackground";
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+
+export default function Home() {
+  const [initialLanguage, setInitialLanguage] = useState("en");
+  useEffect(() => {
+    // Obtener el idioma inicial desde las cookies
+    const language = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("language="))
+      ?.split("=")[1];
+    setInitialLanguage(language === "es" ? "es" : "en");
+
+    // Agregamos la clase css para las animaciones al cargar la página
+    document.documentElement.style.scrollBehavior = "smooth";
+    // Lock horizontal scroll
+    document.body.style.overflowX = "hidden";
+    document.documentElement.style.overflowX = "hidden"; // Also lock overflow on html element
+    document.body.style.width = "100%"; // Force body to be 100% width
+
+    // Scroll to the top on mount
+    window.scrollTo(0, 0);
+    return () => {
+      // Cleanup when component unmounts
+      document.body.style.overflowX = "";
+      document.documentElement.style.overflowX = "";
+      document.body.style.width = "";
+    };
+  }, []);
+
+  return (
+
+    <ThemeProvider>
+      <LanguageProvider initialLanguage={initialLanguage}>
+        <Toaster />
+        <Sonner />
+        {/* Fondo animado */}
+        <AnimatedBackground />
+        <div className="w-full font-poppins relative min-h-screen overflow-x-hidden">
+          <div className="flex w-full flex-col items-center relative z-10">
+            <Header />
+            <section id="home">
+              <Hero />
+            </section>
+            <Projects />
+            <About />
+            <Testimonials />
+            <Contact />
+            <Footer />
+          </div>
+        </div>
+      </LanguageProvider>
+    </ThemeProvider>
   );
 }
+
