@@ -48,21 +48,23 @@ html, body {
   }
 }
 
-.dark {
-  --color-background: hsl(267, 28%, 17%);
-  --color-foreground: hsl(240, 29%, 98%);
-  --color-primary: hsl(267, 31%, 44%);
-  --color-primary-foreground: hsl(240, 29%, 98%);
-  --color-primary-hover: hsl(267, 30%, 55%);
-  --color-secondary: hsl(270, 21%, 50%);
-  --color-secondary-foreground: hsl(240, 29%, 98%);
-  --color-accent: hsl(267, 25%, 45%);
-  --color-accent-foreground: hsl(240, 33%, 96%);
-  --color-card: hsl(276, 27%, 25%);
-  --color-card-foreground: hsl(240, 29%, 98%);
-  --color-border: hsl(270, 21%, 50%);
-  --color-input: hsl(267, 31%, 44%);
-  --color-ring: hsl(267, 30%, 55%);
-  --color-info: hsl(260, 29%, 40%);
-  --color-info-foreground: hsl(240, 29%, 98%);
+.light {
+  --font-poppins: "Poppins", sans-serif;
+  --color-portfolio-background: hsl(345, 29%, 87%);
+  --color-portfolio-foreground: hsl(347, 12%, 16%);
+  --color-portfolio-primary: hsl(345, 29%, 70%);
+  --color-portfolio-primary-foreground: hsl(347, 12%, 16%);
+  --color-portfolio-primary-hover: hsl(345, 29%, 70%);
+  --color-portfolio-secondary: hsl(345, 29%, 87%);
+  --color-portfolio-secondary-foreground: hsl(347, 12%, 16%);
+  --color-portfolio-accent: hsl(345, 29%, 70%);
+  --color-portfolio-accent-foreground: hsl(347, 12%, 16%);
+  --color-portfolio-card: hsl(345, 29%, 87%, 0.3);
+  --color-portfolio-card-foreground: hsl(347, 12%, 16%);
+  --color-portfolio-border: hsl(345, 29%, 70%, 0.3);
+  --color-portfolio-input: hsl(345, 29%, 70%);
+  --color-portfolio-ring: hsl(345, 29%, 70%);
+  --color-portfolio-info: hsl(347, 12%, 16%);
+  --color-portfolio-info-foreground: hsl(347, 12%, 16%);
+  --color-portfolio-text: hsl(347, 12%, 16%);
 }
