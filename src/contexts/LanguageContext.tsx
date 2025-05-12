@@ -19,7 +19,7 @@ interface LanguageContextType {
 const translations: Translations = {
   en: {
     // Header
-    portfolio: 'River Alejandro Bonilla Florez',
+    portfolio: 'River Bonilla',
     home: 'Home',
     projects: 'Projects',
     about: 'About me',

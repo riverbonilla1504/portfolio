@@ -62,7 +62,7 @@ const Hero: React.FC = () => {
                 <div className="flex items-stretch gap-4 text-[13px] font-semibold text-center mt-6 md:mt-10">
                   <Link
                     to="/projects"
-                    className="bg-portfolio-accent text-white dark:text-white text-portfolio-accent-foreground px-4 sm:px-6 py-3 sm:py-4 rounded-lg hover:bg-portfolio-accent/90 transition-colors"
+                    className="bg-portfolio-accent dark:text-white text-portfolio-accent-foreground px-4 sm:px-6 py-3 sm:py-4 rounded-lg hover:bg-portfolio-accent/90 transition-colors"
                   >
                     {t('view-projects')}
                   </Link>

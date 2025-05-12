@@ -10,7 +10,10 @@ import Contact from "@/components/sections/Contact";
 import Footer from "@/components/layout/Footer";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { useTheme } from "@/contexts/ThemeContext";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 import AnimatedBackground from "@/components/background/AnimatedBackground";
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
 
 export default function Home() {
   const [initialLanguage, setInitialLanguage] = useState("en");
@@ -41,24 +44,28 @@ export default function Home() {
   }, []);
 
   return (
-    <LanguageProvider initialLanguage={initialLanguage}>
-      <div className="w-full font-poppins relative min-h-screen overflow-x-hidden">
+
+    <ThemeProvider>
+      <LanguageProvider initialLanguage={initialLanguage}>
+        <Toaster />
+        <Sonner />
         {/* Fondo animado */}
         <AnimatedBackground />
-
-        <div className="flex w-full flex-col items-center relative z-10">
-          <Header />
-          <section id="home">
-            <Hero />
-          </section>
-          <Projects />
-          <About />
-          <Testimonials />
-          <Contact />
-          <Footer />
+        <div className="w-full font-poppins relative min-h-screen overflow-x-hidden">
+          <div className="flex w-full flex-col items-center relative z-10">
+            <Header />
+            <section id="home">
+              <Hero />
+            </section>
+            <Projects />
+            <About />
+            <Testimonials />
+            <Contact />
+            <Footer />
+          </div>
         </div>
-      </div>
-    </LanguageProvider>
+      </LanguageProvider>
+    </ThemeProvider>
   );
 }
 
