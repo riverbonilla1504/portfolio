@@ -9,6 +9,7 @@ const AnimatedBackground: React.FC = () => {
   const wavesRef = useRef<THREE.Mesh[]>([]);
   const { theme } = useTheme();
 
+  //@ts-ignore
   const createWaveShape = (offsetY: number, amplitude: number, width: number, detail: number) => {
     const shape = new THREE.Shape();
     const segments = 10;

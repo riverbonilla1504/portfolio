@@ -9,7 +9,6 @@ import Testimonials from "@/components/sections/Testimonials";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/layout/Footer";
 import { LanguageProvider } from "@/contexts/LanguageContext";
-import { useTheme } from "@/contexts/ThemeContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import AnimatedBackground from "@/components/background/AnimatedBackground";
 import { Toaster } from "@/components/ui/toaster";
@@ -17,7 +16,6 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 
 export default function Home() {
   const [initialLanguage, setInitialLanguage] = useState("en");
-  const { theme } = useTheme();
   useEffect(() => {
     // Obtener el idioma inicial desde las cookies
     const language = document.cookie
