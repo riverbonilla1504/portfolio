@@ -17,7 +17,6 @@ const Link: React.FC<LinkProps> = ({ to, className, children }) => {
     </a>
   );
 };
-
 const Footer: React.FC = () => {
   const { t } = useTranslation();
 
@@ -32,7 +31,7 @@ const Footer: React.FC = () => {
           <div className="gap-5 flex max-md:flex-col max-md:items-stretch">
             <div className="w-[71%] max-md:w-full max-md:ml-0">
               <div className="flex w-full flex-col max-md:mt-10">
-                <div className="flex items-stretch gap-3 text-xl text-white font-bold whitespace-nowrap tracking-[0.5px]">
+                <div className="flex items-stretch gap-3 text-xl font-bold whitespace-nowrap tracking-[0.5px] text-portfolio-text">
                   <img
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/71f53f2cd327c5b49431c6bd3b5439c8d3942dd7?placeholderIfAbsent=true"
                     alt="Logo"
@@ -40,7 +39,7 @@ const Footer: React.FC = () => {
                   />
                   <div>River</div>
                 </div>
-                <p className="text-white text-[15px] font-normal leading-6 self-stretch mt-[27px]">
+                <p className="text-portfolio-text text-[15px] font-normal leading-6 self-stretch mt-[27px]">
                   {t('footer.description')}
                 </p>
 
@@ -73,7 +72,7 @@ const Footer: React.FC = () => {
 
 
             <div className="w-[29%] ml-5 max-md:w-full max-md:ml-0">
-              <nav className="flex w-full flex-col text-[15px] text-white font-normal max-md:mt-10">
+              <nav className="flex w-full flex-col text-[15px] font-normal max-md:mt-10 text-portfolio-text">
 
                 <div className="self-stretch flex items-stretch gap-3 text-xl font-bold whitespace-nowrap tracking-[0.5px]">
                   <img
@@ -106,7 +105,7 @@ const Footer: React.FC = () => {
         </div>
 
 
-        <div className="flex flex-col text-base text-white font-normal">
+        <div className="flex flex-col text-base font-normal text-portfolio-text">
           <div className="flex items-stretch gap-3 text-xl font-bold whitespace-nowrap tracking-[0.5px]">
             <img
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/e34ecfbe2f31c3f6ccbcc7e512a558de5907d0b0?placeholderIfAbsent=true"
@@ -143,7 +142,7 @@ const Footer: React.FC = () => {
       </div>
 
 
-      <div className="w-[1200px] max-w-full text-sm text-white font-normal text-center mt-[93px] pt-[47px] pb-[7px] px-[70px] border-portfolio-border-solid border-t max-md:mt-10 max-md:px-5">
+      <div className="w-[1200px] max-w-full text-sm font-normal text-center mt-[93px] pt-[47px] pb-[7px] px-[70px] border-portfolio-border-solid border-t max-md:mt-10 max-md:px-5 text-portfolio-text">
         © 2025 River {t('footer.rights')}
       </div>
     </footer>
@@ -151,4 +150,3 @@ const Footer: React.FC = () => {
 };
 
 export default Footer;
-

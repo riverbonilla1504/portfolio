@@ -5,6 +5,7 @@ import { useIsMobile } from "../../hooks/use-mobile";
 // Componente Link compatible con Next.js y React Router
 import { ReactNode } from "react";
 import { Menu } from "lucide-react";
+import ThemeToggle from "../ui/ThemeToggle";
 
 interface LinkProps {
   href: string;
@@ -117,14 +118,14 @@ const Header: React.FC = () => {
           alt="Logo"
           className="aspect-[1] object-contain w-8 shrink-0"
         />
-        <div className="basis-auto grow shrink text-white font-poppins">
+        <div className="basis-auto grow shrink text-portfolio-text font-poppins">
           {t('portfolio')}
         </div>
       </div>
 
       {/* Desktop Navigation */}
       {!isMobile && (
-        <nav className="self-stretch flex items-stretch gap-[40px_63px] text-base text-white font-medium flex-wrap my-auto max-md:max-w-full">
+        <nav className="self-stretch flex items-stretch gap-[40px_63px] text-base text-portfolio-text font-medium flex-wrap my-auto max-md:max-w-full">
           {navLinks.map((link) => (
             <motion.a
               key={link.id}
@@ -151,28 +152,32 @@ const Header: React.FC = () => {
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          className="text-white p-2 rounded-md hover:bg-portfolio-accent/30 transition-colors"
+          className="text-portfolio-text p-2 rounded-md hover:bg-portfolio-accent/30 transition-colors"
           aria-label="Menu"
         >
           <Menu size={24} />
         </motion.button>
       )}
 
-      {/* Desktop Language Toggle */}
+      {/* Desktop Controls (Language toggle + Theme toggle) */}
       {!isMobile && (
-        <motion.button
-          onClick={toggleLanguage}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          className="self-stretch flex items-center gap-2.5 text-[13px] text-white font-bold whitespace-nowrap text-center my-auto cursor-pointer px-3 py-1 rounded-md hover:bg-portfolio-accent/30 transition-colors font-poppins"
-        >
-          <img
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/6b7b9d477cc3f205c0f2c91cbb7e492c3c7275c5?placeholderIfAbsent=true"
-            alt="Language icon"
-            className="aspect-[1] object-contain w-5 shrink-0"
-          />
-          <div>{t('switch-lang')}</div>
-        </motion.button>
+        <div className="flex items-center gap-4">
+          <ThemeToggle />
+
+          <motion.button
+            onClick={toggleLanguage}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            className="self-stretch flex items-center gap-2.5 text-[13px] text-portfolio-text font-bold whitespace-nowrap text-center my-auto cursor-pointer px-3 py-1 rounded-md hover:bg-portfolio-accent/30 transition-colors font-poppins"
+          >
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/6b7b9d477cc3f205c0f2c91cbb7e492c3c7275c5?placeholderIfAbsent=true"
+              alt="Language icon"
+              className="aspect-[1] object-contain w-5 shrink-0"
+            />
+            <div>{t('switch-lang')}</div>
+          </motion.button>
+        </div>
       )}
 
       {/* Mobile Menu Dropdown */}
@@ -193,7 +198,7 @@ const Header: React.FC = () => {
                   onClick={scrollToSection(link.id)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`flex items-center gap-3 p-3 rounded-md font-poppins ${activeSection === link.id ? "bg-portfolio-primary text-portfolio-accent" : "text-white"}`}
+                  className={`flex items-center gap-3 p-3 rounded-md font-poppins ${activeSection === link.id ? "bg-portfolio-primary text-portfolio-accent" : "text-portfolio-text"}`}
                 >
                   <img
                     src={link.icon}
@@ -204,20 +209,24 @@ const Header: React.FC = () => {
                 </motion.a>
               ))}
 
-              {/* Mobile Language Toggle */}
-              <motion.button
-                onClick={toggleLanguage}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-3 p-3 text-white font-poppins"
-              >
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/6b7b9d477cc3f205c0f2c91cbb7e492c3c7275c5?placeholderIfAbsent=true"
-                  alt="Language icon"
-                  className="aspect-[1] object-contain w-5"
-                />
-                <div>{t('switch-lang')}</div>
-              </motion.button>
+              {/* Mobile Controls (Theme Toggle + Language Toggle) */}
+              <div className="flex items-center gap-4 p-3">
+                <ThemeToggle />
+
+                <motion.button
+                  onClick={toggleLanguage}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center gap-3 text-portfolio-text font-poppins"
+                >
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/6b7b9d477cc3f205c0f2c91cbb7e492c3c7275c5?placeholderIfAbsent=true"
+                    alt="Language icon"
+                    className="aspect-[1] object-contain w-5"
+                  />
+                  <div>{t('switch-lang')}</div>
+                </motion.button>
+              </div>
             </div>
           </motion.div>
         )}

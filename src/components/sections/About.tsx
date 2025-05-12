@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "../../hooks/useTranslation";
@@ -109,8 +108,7 @@ const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="bg-portfolio-primary flex flex-col items-center py-16 px-4" aria-label="About">
-      <div className="bg-portfolio-secondary flex w-2.5 shrink-0 h-2.5 mx-auto mt-8 rounded-[5px]" aria-hidden="true" />
+    <section id="about" className=" flex flex-col items-center py-16 px-4" aria-label="About">
 
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
@@ -256,7 +254,7 @@ const About: React.FC = () => {
                   <h3 className="text-white text-xl font-semibold font-poppins">{exp.title}</h3>
                   <div className="flex flex-col md:flex-row md:justify-between md:items-center mt-2">
                     <p className="text-portfolio-accent font-medium font-poppins">{exp.company}</p>
-                    <span className="text-portfolio-text/70 text-sm mt-1 md:mt-0 font-poppins">{exp.period}</span>
+                    <span className="text-portfolio-text text-sm mt-1 md:mt-0 font-poppins">{exp.period}</span>
                   </div>
                   <p className="text-portfolio-text mt-3 font-poppins">{exp.description}</p>
                 </motion.div>
