@@ -17,13 +17,14 @@ const Link: React.FC<LinkProps> = ({ to, className, children }) => {
     </a>
   );
 };
+
 const Hero: React.FC = () => {
   const { t } = useTranslation();
 
   return (
     <section
       id="home"
-      className="bg-portfolio-primary self-stretch flex w-full flex-col overflow-hidden items-center pt-8 md:pt-[84px] px-4 sm:px-8 lg:px-[70px]"
+      className=" self-stretch flex w-full flex-col overflow-hidden items-center pt-8 md:pt-[84px] px-4 sm:px-8 lg:px-[70px]"
       aria-label="Introduction"
     >
 
@@ -32,10 +33,7 @@ const Hero: React.FC = () => {
           <div className="w-full lg:w-[67%]">
 
             <div className="flex flex-wrap items-start gap-5 font-normal justify-between mt-4 md:mt-[85px]">
-              <div
-                className="bg-portfolio-accent flex w-[100px] shrink-0 h-[100px] rounded-[50px] hidden md:block"
-                aria-hidden="true"
-              />
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -64,7 +62,7 @@ const Hero: React.FC = () => {
                 <div className="flex items-stretch gap-4 text-[13px] font-semibold text-center mt-6 md:mt-10">
                   <Link
                     to="/projects"
-                    className="bg-portfolio-accent text-white px-4 sm:px-6 py-3 sm:py-4 rounded-lg hover:bg-portfolio-accent/90 transition-colors"
+                    className="bg-portfolio-accent text-white dark:text-white text-portfolio-accent-foreground px-4 sm:px-6 py-3 sm:py-4 rounded-lg hover:bg-portfolio-accent/90 transition-colors"
                   >
                     {t('view-projects')}
                   </Link>
@@ -76,24 +74,15 @@ const Hero: React.FC = () => {
                   </Link>
                 </div>
 
-                <div
-                  className="bg-portfolio-accent hidden md:flex w-[120px] shrink-0 h-[83px] mt-[85px] rounded-[60px]"
-                  aria-hidden="true"
-                />
+
               </motion.div>
-              <div
-                className="bg-portfolio-accent hidden md:flex w-20 shrink-0 h-20 my-auto rounded-[40px]"
-                aria-hidden="true"
-              />
+
             </div>
           </div>
 
           <div className="w-full lg:w-[33%] flex justify-center">
             <div className="w-full max-w-xs">
-              <div
-                className="bg-portfolio-accent flex w-[60px] shrink-0 h-[60px] mx-auto md:ml-[76px] rounded-[30px]"
-                aria-hidden="true"
-              />
+
               <div className="mt-4 md:mt-[17px]">
                 <div className="flex flex-col items-center">
                   <div className="w-full max-w-[250px]">
@@ -106,10 +95,7 @@ const Hero: React.FC = () => {
                       className="aspect-[0.64] object-contain w-full z-10 rounded-[217px]"
                     />
                   </div>
-                  <div
-                    className="bg-portfolio-accent flex w-[150px] shrink-0 h-[150px] mt-8 md:mt-[60px] mx-auto rounded-[75px]"
-                    aria-hidden="true"
-                  />
+
                 </div>
               </div>
             </div>

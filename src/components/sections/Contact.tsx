@@ -3,16 +3,23 @@ import React from "react";
 import ContactForm from "../ui/ContactForm";
 import { motion } from "framer-motion";
 import { useTranslation } from "../../hooks/useTranslation";
+import { useTheme } from "@/contexts/ThemeContext";
+
 const Contact: React.FC = () => {
   const { t } = useTranslation();
+  const { theme } = useTheme();
 
   return (
-    <section id="contact" className="bg-portfolio-primary flex flex-col items-center py-16" aria-label="Contact">
+    <section
+      id="contact"
+      className="flex flex-col items-center py-16 mx-4 my-8 md:mx-12"
+      aria-label="Contact"
+    >
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-[56px] font-bold text-center text-white max-md:text-[40px]"
+        className="text-[56px] font-bold text-center text-portfolio-text max-md:text-[40px]"
       >
         {t('contact.title')}
       </motion.h2>
@@ -30,7 +37,7 @@ const Contact: React.FC = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.6 }}
-        className="text-portfolio-text text-lg font-normal leading-[29px] text-center m-6 max-md:max-w-full"
+        className="text-portfolio-text text-lg font-normal leading-[29px] text-center mt-6 max-md:max-w-full"
       >
         {t('contact.description')}
       </motion.p>
@@ -39,6 +46,7 @@ const Contact: React.FC = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.6 }}
+        className="p-6 mt-8 w-full max-w-md"
       >
         <ContactForm />
       </motion.div>
@@ -64,11 +72,12 @@ const Contact: React.FC = () => {
           rel="noopener noreferrer"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
+          className="p-2"
         >
           <img
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/0cbbe32a312ed81eca2aba34b43b6ce7ded1cb9d?placeholderIfAbsent=true"
             alt="GitHub"
-            className="aspect-[1] object-contain w-[58px] shrink-0 rounded-[29px]"
+            className="aspect-[1] object-contain w-[50px] shrink-0"
           />
         </motion.a>
         <motion.a
@@ -77,11 +86,12 @@ const Contact: React.FC = () => {
           rel="noopener noreferrer"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
+          className="p-2"
         >
           <img
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/d1fa3fe95d0d675f56d5d794bb120b4aa484283c?placeholderIfAbsent=true"
             alt="LinkedIn"
-            className="aspect-[1] object-contain w-[58px] shrink-0 rounded-[29px]"
+            className="aspect-[1] object-contain w-[50px] shrink-0"
           />
         </motion.a>
         <motion.a
@@ -90,11 +100,12 @@ const Contact: React.FC = () => {
           rel="noopener noreferrer"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
+          className="p-2"
         >
           <img
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/c32b51d7fd12c8d30aacd6f3ea43c23f169e6fd1?placeholderIfAbsent=true"
             alt="Twitter"
-            className="aspect-[1] object-contain w-[58px] shrink-0 rounded-[29px]"
+            className="aspect-[1] object-contain w-[50px] shrink-0"
           />
         </motion.a>
       </motion.div>

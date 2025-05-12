@@ -78,9 +78,9 @@ const AnimatedBackground: React.FC = () => {
 
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.z = 16;
-    
+
     // Initialize renderer
-    const renderer = new THREE.WebGLRenderer({ 
+    const renderer = new THREE.WebGLRenderer({
       canvas: canvasRef.current,
       antialias: true,
       alpha: true,
@@ -95,11 +95,11 @@ const AnimatedBackground: React.FC = () => {
 
     const waves: THREE.Mesh[] = [];
     const totalWaves = 5;
-    
+
     // Increase size of waves
     const waveWidth = (window.innerWidth / window.innerHeight) * 60; // Increased from 40
     const baseOffsetY = -5; // Moved waves up to show more in the middle
-    
+
     for (let i = 0; i < totalWaves; i++) {
       const offsetY = baseOffsetY + i * 3;
       const amplitude = 3 + i * 0.7;

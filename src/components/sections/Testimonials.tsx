@@ -42,12 +42,12 @@ const Testimonials: React.FC = () => {
   };
 
   return (
-    <section id="testimonials" className="bg-portfolio-primary flex flex-col items-center py-16 px-4">
+    <section id="testimonials" className=" flex flex-col items-center py-16 px-4">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-4xl md:text-[56px] font-bold text-center text-white mb-12 max-md:mb-8 font-poppins"
+        className="text-4xl md:text-[56px] font-bold text-center text-portfolio-text mb-12 max-md:mb-8 font-poppins"
       >
         {t('testimonials.title')}
       </motion.h2>
@@ -65,7 +65,7 @@ const Testimonials: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -100 }}
             transition={{ duration: 0.5 }}
-            className="bg-portfolio-secondary p-6 md:p-8 rounded-2xl shadow-lg w-full"
+            className="bg-portfolio-primary p-6 md:p-8 rounded-2xl shadow-lg w-full"
           >
             <div className="flex flex-col items-center text-center">
               <img
@@ -74,7 +74,7 @@ const Testimonials: React.FC = () => {
                 className="w-16 md:w-20 h-16 md:h-20 rounded-full object-cover mb-4 border-2 border-portfolio-accent"
               />
               <p className="text-portfolio-text text-base md:text-lg italic mb-6 leading-relaxed font-poppins">"{testimonials[activeIndex].text}"</p>
-              <h4 className="text-white font-semibold text-xl font-poppins">{testimonials[activeIndex].name}</h4>
+              <h4 className="text-portfolio-text font-semibold text-xl font-poppins">{testimonials[activeIndex].name}</h4>
               <p className="text-portfolio-accent font-poppins">{testimonials[activeIndex].role}</p>
             </div>
           </motion.div>
@@ -83,7 +83,7 @@ const Testimonials: React.FC = () => {
         <div className="flex justify-between items-center mt-8">
           <button
             onClick={prevTestimonial}
-            className="bg-portfolio-accent/20 hover:bg-portfolio-accent/40 transition-all p-2 md:p-3 rounded-full text-white"
+            className="bg-portfolio-accent/20 hover:bg-portfolio-accent/40 transition-all p-2 md:p-3 rounded-full text-portfolio-text"
             aria-label="Previous testimonial"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width={isMobile ? "20" : "24"} height={isMobile ? "20" : "24"} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -104,7 +104,7 @@ const Testimonials: React.FC = () => {
 
           <button
             onClick={nextTestimonial}
-            className="bg-portfolio-accent/20 hover:bg-portfolio-accent/40 transition-all p-2 md:p-3 rounded-full text-white"
+            className="bg-portfolio-accent/20 hover:bg-portfolio-accent/40 transition-all p-2 md:p-3 rounded-full text-portfolio-text"
             aria-label="Next testimonial"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width={isMobile ? "20" : "24"} height={isMobile ? "20" : "24"} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

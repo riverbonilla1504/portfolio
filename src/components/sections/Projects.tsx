@@ -52,7 +52,7 @@ const Projects: React.FC = () => {
   return (
     <section
       id="projects"
-      className="bg-portfolio-primary self-stretch flex w-full flex-col items-center justify-center px-4 sm:px-8 lg:px-[70px] py-16 lg:py-[169px]"
+      className=" self-stretch flex w-full flex-col items-center justify-center px-4 sm:px-8 lg:px-[70px] py-16 lg:py-[169px]"
       aria-label="Projects"
     >
       <div className="w-full max-w-[1409px]">

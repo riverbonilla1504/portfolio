@@ -9,10 +9,12 @@ import Testimonials from "@/components/sections/Testimonials";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/layout/Footer";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { useTheme } from "@/contexts/ThemeContext";
+import AnimatedBackground from "@/components/background/AnimatedBackground";
 
 export default function Home() {
   const [initialLanguage, setInitialLanguage] = useState("en");
-
+  const { theme } = useTheme();
   useEffect(() => {
     // Obtener el idioma inicial desde las cookies
     const language = document.cookie
@@ -40,8 +42,11 @@ export default function Home() {
 
   return (
     <LanguageProvider initialLanguage={initialLanguage}>
-      <div className="bg-portfolio-primary pt-2 overflow-x-hidden w-full font-poppins">
-        <div className="flex w-full flex-col items-center">
+      <div className="w-full font-poppins relative min-h-screen overflow-x-hidden">
+        {/* Fondo animado */}
+        <AnimatedBackground />
+
+        <div className="flex w-full flex-col items-center relative z-10">
           <Header />
           <section id="home">
             <Hero />
