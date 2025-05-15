@@ -22,6 +22,13 @@ const ContactForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
+  // Helper function to ensure we always get a string
+  const ensureString = (value: any): string => {
+    if (typeof value === 'string') return value;
+    if (Array.isArray(value)) return value.join(", ");
+    return '';
+  };
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -61,12 +68,12 @@ const ContactForm: React.FC = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="bg-portfolio-surface shadow-[0px_8px_32px_rgba(0,0,0,0.1)] border flex w-full max-w-[1024px] flex-col items-stretch text-[15px] text-portfolio-text font-medium p-5 md:p-[41px] rounded-2xl border-portfolio-border max-md:mt-6"
+      className=" card-glass bg-portfolio-surface shadow-[0px_8px_32px_rgba(0,0,0,0.1)] border flex w-full max-w-[1024px] flex-col items-stretch text-[15px] text-portfolio-text font-medium p-5 md:p-[41px] rounded-2xl border-portfolio-border max-md:mt-6"
     >
       {/* Name & Email Labels */}
       <div className="flex w-full md:w-[552px] max-w-full items-stretch gap-5 flex-wrap justify-between">
-        <label htmlFor="name">{t('contact.name')}</label>
-        <label htmlFor="email" className="mt-4 md:mt-0">{t('contact.email')}</label>
+        <label htmlFor="name">{ensureString(t('contact.name'))}</label>
+        <label htmlFor="email" className="mt-4 md:mt-0">{ensureString(t('contact.email'))}</label>
       </div>
 
       {/* Name & Email Inputs */}
@@ -79,7 +86,7 @@ const ContactForm: React.FC = () => {
           type="text"
           value={formData.name}
           onChange={handleChange}
-          placeholder={t('contact.name')}
+          placeholder={ensureString(t('contact.name'))}
           className="bg-portfolio-surface/70 overflow-hidden grow w-full md:basis-0 p-[18px] rounded-xl border-portfolio-border border-solid border-2 focus:border-portfolio-accent outline-none transition-all"
           required
         />
@@ -91,7 +98,7 @@ const ContactForm: React.FC = () => {
           type="email"
           value={formData.email}
           onChange={handleChange}
-          placeholder={t('contact.email')}
+          placeholder={ensureString(t('contact.email'))}
           className="bg-portfolio-surface/70 overflow-hidden grow w-full md:basis-0 p-[18px] rounded-xl border-portfolio-border border-solid border-2 focus:border-portfolio-accent outline-none transition-all"
           required
         />
@@ -99,7 +106,7 @@ const ContactForm: React.FC = () => {
 
       {/* Subject */}
       <label htmlFor="subject" className="mt-8 md:mt-12">
-        {t('contact.subject')}
+        {ensureString(t('contact.subject'))}
       </label>
       <motion.input
         whileFocus={{ scale: 1.02 }}
@@ -109,14 +116,14 @@ const ContactForm: React.FC = () => {
         type="text"
         value={formData.subject}
         onChange={handleChange}
-        placeholder={t('contact.subject')}
+        placeholder={ensureString(t('contact.subject'))}
         className="bg-portfolio-surface/70 overflow-hidden text-portfolio-text/70 font-normal mt-[15px] p-[18px] rounded-xl border-portfolio-border border-solid border-2 focus:border-portfolio-accent outline-none transition-all"
         required
       />
 
       {/* Message */}
       <label htmlFor="message" className="mt-6">
-        {t('contact.message')}
+        {ensureString(t('contact.message'))}
       </label>
       <motion.textarea
         whileFocus={{ scale: 1.02 }}
@@ -125,7 +132,7 @@ const ContactForm: React.FC = () => {
         name="message"
         value={formData.message}
         onChange={handleChange}
-        placeholder={t('contact.message')}
+        placeholder={ensureString(t('contact.message'))}
         className="bg-portfolio-surface/70 overflow-hidden text-base text-portfolio-text/70 font-normal mt-3 pt-3.5 pb-[90px] px-[18px] rounded-xl border-portfolio-border border-solid border-2 focus:border-portfolio-accent outline-none transition-all h-36 md:h-auto"
         required
       />
@@ -145,7 +152,7 @@ const ContactForm: React.FC = () => {
             className="aspect-[1] object-contain w-5 shrink-0"
           />
           <span className="grow shrink w-[111px] my-auto">
-            {isSubmitting ? t('contact.sending') : submitSuccess ? t('contact.success') : t('contact.send')}
+            {isSubmitting ? ensureString(t('contact.sending')) : submitSuccess ? ensureString(t('contact.success')) : ensureString(t('contact.send'))}
           </span>
         </div>
       </motion.button>

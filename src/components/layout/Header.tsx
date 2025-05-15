@@ -175,7 +175,7 @@ const Header: React.FC = () => {
               alt="Language icon"
               className="aspect-[1] object-contain w-5 shrink-0"
             />
-            <div>{t('switch-lang')}</div>
+            <div>{t('switch.lang')}</div>
           </motion.button>
         </div>
       )}
@@ -224,7 +224,7 @@ const Header: React.FC = () => {
                     alt="Language icon"
                     className="aspect-[1] object-contain w-5"
                   />
-                  <div>{t('switch-lang')}</div>
+                  <div>{t('switch.lang')}</div>
                 </motion.button>
               </div>
             </div>
