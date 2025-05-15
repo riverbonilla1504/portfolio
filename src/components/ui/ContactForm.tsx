@@ -68,7 +68,7 @@ const ContactForm: React.FC = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="bg-portfolio-surface shadow-[0px_8px_32px_rgba(0,0,0,0.1)] border flex w-full max-w-[1024px] flex-col items-stretch text-[15px] text-portfolio-text font-medium p-5 md:p-[41px] rounded-2xl border-portfolio-border max-md:mt-6"
+      className=" card-glass bg-portfolio-surface shadow-[0px_8px_32px_rgba(0,0,0,0.1)] border flex w-full max-w-[1024px] flex-col items-stretch text-[15px] text-portfolio-text font-medium p-5 md:p-[41px] rounded-2xl border-portfolio-border max-md:mt-6"
     >
       {/* Name & Email Labels */}
       <div className="flex w-full md:w-[552px] max-w-full items-stretch gap-5 flex-wrap justify-between">

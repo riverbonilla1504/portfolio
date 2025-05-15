@@ -214,7 +214,7 @@ const About: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-[9px] px-3 md:px-[25px] py-2 md:py-[13px] rounded-lg transition-colors ${activeTab === tab.id
+              className={`card-glass flex items-center gap-[9px] px-3 md:px-[25px] py-2 md:py-[13px] rounded-lg transition-colors ${activeTab === tab.id
                 ? "bg-portfolio-primary"
                 : "bg-portfolio-surface/50 border border-portfolio-border"
                 }`}
@@ -243,8 +243,8 @@ const About: React.FC = () => {
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {/* Backend Skills */}
-            <div className="w-full">
-              <div className="flex grow flex-col text-base text-slate-200 font-normal p-4 md:px-6 md:py-[30px] rounded-2xl border border-portfolio-border bg-portfolio-surface/30 overflow-hidden">
+            <div className="w-full ">
+              <div className="flex card-glass grow flex-col text-base text-slate-200 font-normal p-4 md:px-6 md:py-[30px] rounded-2xl border border-portfolio-border bg-portfolio-surface/30 overflow-hidden">
                 <h3 className="text-portfolio-text text-xl font-semibold flex items-center font-poppins">
                   <span className="mr-2 text-portfolio-accent">⚙️</span>
                   {t('about.skills.backend.title')}
@@ -267,7 +267,7 @@ const About: React.FC = () => {
 
             {/* Frontend Skills */}
             <div className="w-full">
-              <div className="flex grow flex-col text-base text-slate-200 font-normal p-4 md:px-6 md:py-[30px] rounded-2xl border border-portfolio-border bg-portfolio-surface/30 overflow-hidden">
+              <div className="card-glass flex grow flex-col text-base text-slate-200 font-normal p-4 md:px-6 md:py-[30px] rounded-2xl border border-portfolio-border bg-portfolio-surface/30 overflow-hidden">
                 <h3 className="text-portfolio-text text-xl font-semibold flex items-center font-poppins">
                   <span className="mr-2 text-portfolio-accent">📱</span>
                   {t('about.skills.frontend.title')}
@@ -290,7 +290,7 @@ const About: React.FC = () => {
 
             {/* AI Skills */}
             <div className="w-full">
-              <div className="flex grow flex-col text-base text-slate-200 font-normal p-4 md:px-6 md:py-[30px] rounded-2xl border border-portfolio-border bg-portfolio-surface/30 overflow-hidden">
+              <div className=" card-glass flex grow flex-col text-base text-slate-200 font-normal p-4 md:px-6 md:py-[30px] rounded-2xl border border-portfolio-border bg-portfolio-surface/30 overflow-hidden">
                 <h3 className="text-portfolio-text text-xl font-semibold flex items-center font-poppins">
                   <span className="mr-2 text-portfolio-accent">🤖</span>
                   {t('about.skills.ai.title')}
@@ -313,7 +313,7 @@ const About: React.FC = () => {
 
             {/* Databases Skills */}
             <div className="w-full">
-              <div className="flex grow flex-col text-base text-slate-200 font-normal p-4 md:px-6 md:py-[30px] rounded-2xl border border-portfolio-border bg-portfolio-surface/30 overflow-hidden">
+              <div className="card-glass flex grow flex-col text-base text-slate-200 font-normal p-4 md:px-6 md:py-[30px] rounded-2xl border border-portfolio-border bg-portfolio-surface/30 overflow-hidden">
                 <h3 className="text-portfolio-text text-xl font-semibold flex items-center font-poppins">
                   <span className="mr-2 text-portfolio-accent">🛢️</span>
                   {t('about.skills.databases.title')}
@@ -336,7 +336,7 @@ const About: React.FC = () => {
 
             {/* DevOps Skills */}
             <div className="w-full">
-              <div className="flex grow flex-col text-base text-slate-200 font-normal p-4 md:px-6 md:py-[30px] rounded-2xl border border-portfolio-border bg-portfolio-surface/30 overflow-hidden">
+              <div className="card-glass flex grow flex-col text-base text-slate-200 font-normal p-4 md:px-6 md:py-[30px] rounded-2xl border border-portfolio-border bg-portfolio-surface/30 overflow-hidden">
                 <h3 className="text-portfolio-text text-xl font-semibold flex items-center font-poppins">
                   <span className="mr-2 text-portfolio-accent">⚡</span>
                   {t('about.skills.devops.title')}
@@ -359,7 +359,7 @@ const About: React.FC = () => {
 
             {/* Architecture Skills */}
             <div className="w-full">
-              <div className="flex grow flex-col text-base text-slate-200 font-normal p-4 md:px-6 md:py-[30px] rounded-2xl border border-portfolio-border bg-portfolio-surface/30 overflow-hidden">
+              <div className="card-glass flex grow flex-col text-base text-slate-200 font-normal p-4 md:px-6 md:py-[30px] rounded-2xl border border-portfolio-border bg-portfolio-surface/30 overflow-hidden">
                 <h3 className="text-portfolio-text text-xl font-semibold flex items-center font-poppins">
                   <span className="mr-2 text-portfolio-accent">📐</span>
                   {t('about.skills.architecture.title')}
@@ -382,7 +382,7 @@ const About: React.FC = () => {
           </div>
 
           {/* Soft Skills */}
-          <div className="mt-6 p-4 border border-portfolio-border rounded-2xl bg-portfolio-surface/30">
+          <div className="card-glass mt-6 p-4 border border-portfolio-border rounded-2xl bg-portfolio-surface/30">
             <h3 className="text-portfolio-text text-xl font-semibold font-poppins mb-4 flex items-center">
               <span className="mr-2 text-portfolio-accent">🚀</span>
               {t('about.softskills.title')}
@@ -413,7 +413,7 @@ const About: React.FC = () => {
           transition={{ delay: 0.3 }}
           className="w-full max-w-[1201px] mt-12 max-md:mt-8 px-2"
         >
-          <div className="border border-portfolio-border rounded-2xl bg-portfolio-surface/30 p-4 md:p-8 overflow-hidden">
+          <div className="border card-glass border-portfolio-border rounded-2xl bg-portfolio-surface/30 p-4 md:p-8 overflow-hidden">
             <div className="space-y-8 overflow-y-auto max-h-[500px] pr-2">
               {tabContents.experience.map((exp, index) => (
                 <motion.div
@@ -443,7 +443,7 @@ const About: React.FC = () => {
           transition={{ delay: 0.3 }}
           className="w-full max-w-[1201px] mt-12 max-md:mt-8 px-2"
         >
-          <div className="border border-portfolio-border bg-portfolio-surface/30 rounded-2xl p-4 md:p-8 overflow-hidden">
+          <div className=" card-glass border border-portfolio-border bg-portfolio-surface/30 rounded-2xl p-4 md:p-8 overflow-hidden">
             <div className="space-y-8 overflow-y-auto max-h-[500px] pr-2">
               {tabContents.education.map((edu, index) => (
                 <motion.div
@@ -474,14 +474,14 @@ const About: React.FC = () => {
           transition={{ delay: 0.3 }}
           className="w-full max-w-[1201px] mt-12 max-md:mt-8 px-2"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 overflow-hidden">
+          <div className=" grid grid-cols-1 md:grid-cols-2 gap-6 overflow-hidden">
             {tabContents.interests.map((interest, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2 + index * 0.1 }}
-                className="border border-portfolio-border bg-portfolio-surface/30 rounded-xl p-6 hover:bg-portfolio-surface/50 transition-all"
+                className="border card-glass border-portfolio-border bg-portfolio-surface/30 rounded-xl p-6 hover:bg-portfolio-surface/50 transition-all"
               >
                 <div className="text-4xl mb-3">{interest.icon}</div>
                 <h3 className="text-portfolio-text text-lg font-semibold mb-2 font-poppins">{interest.title}</h3>
@@ -507,7 +507,7 @@ const About: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 + index * 0.15 }}
-                className="border border-portfolio-border bg-portfolio-surface/30 rounded-xl p-6 hover:bg-portfolio-surface/50 transition-all"
+                className="border card-glass border-portfolio-border bg-portfolio-surface/30 rounded-xl p-6 hover:bg-portfolio-surface/50 transition-all"
               >
                 <div className="text-4xl mb-3">{aspiration.icon}</div>
                 <h3 className="text-portfolio-text text-lg font-semibold mb-2 font-poppins">{aspiration.title}</h3>

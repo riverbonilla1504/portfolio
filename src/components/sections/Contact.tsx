@@ -53,7 +53,7 @@ const Contact: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="p-6 w-full max-w-lg mx-auto"
+          className="p-6 w-full max-w-lg mx-auto "
         >
           <ContactForm />
         </motion.div>
@@ -63,9 +63,9 @@ const Contact: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="w-full flex flex-col items-center gap-6"
+          className="w-full flex flex-col items-center  gap-6"
         >
-          <div className="flex flex-wrap justify-center gap-8">
+          <div className="card-glassflex flex-wrap justify-center gap-8">
             <div className="flex items-center gap-3 text-portfolio-text">
               <Mail className="h-5 w-5 text-portfolio-accent" />
               <a href="mailto:riverflorez.04@gmail.com" className="hover:text-portfolio-accent transition-colors">
