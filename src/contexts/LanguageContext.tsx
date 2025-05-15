@@ -28,26 +28,26 @@ const translations: Translations = {
     // Hero Section
     greeting: "Hi, I'm",
     role: "Software Engineering Student",
-    'hero-description': "Backend developer with skills in Java, Python, Node.js and experience in diverse projects.",
-    'view-projects': "View Projects",
-    'contact-me': "Contact Me",
-    'profile-image-alt': "Profile picture",
+    'hero.description': "Backend developer with skills in Java, Python, Node.js and experience in diverse projects.",
+    'view.projects': "View Projects",
+    'contact.me': "Contact Me",
+    'profile.image.alt': "Profile picture",
 
     // Projects Section
-    'my-projects': 'My Projects',
-    'explore-portfolio': 'Explore my technical projects',
-    'projects-description': 'Here you will find a selection of my most challenging projects, showcasing my backend development skills.',
-    'fullstack-projects': 'Full-stack projects with modern architectures',
-    'technical-solutions': 'Innovative and scalable technical solutions',
-    'clean-code': 'Clean and maintainable code with best practices',
-    'user-experience': 'Focus on user experience and design',
-    'projects-count': 'Projects',
-    'technologies-count': 'Technologies',
-    'see-project': 'View Details',
-    'view-code': 'View Code',
-    'loading-site': 'Loading details...',
-    'view-live': 'View Details',
-    'view-preview': 'View Preview',
+    'my.projects': 'My Projects',
+    'explore.portfolio': 'Explore my technical projects',
+    'projects.description': 'Here you will find a selection of my most challenging projects, showcasing my backend development skills.',
+    'fullstack.projects': 'Full-stack projects with modern architectures',
+    'technical.solutions': 'Innovative and scalable technical solutions',
+    'clean.code': 'Clean and maintainable code with best practices',
+    'user.experience': 'Focus on user experience and design',
+    'projects.count': 'Projects',
+    'technologies.count': 'Technologies',
+    'see.project': 'View Details',
+    'view.code': 'View Code',
+    'loading.site': 'Loading details...',
+    'view.live': 'View Details',
+    'view.preview': 'View Preview',
 
     // Projects
     'project1': {
@@ -61,26 +61,31 @@ const translations: Translations = {
         'Scalable architecture in Azure'
       ]
     },
-    'project2': {
-      name: 'University Platform',
-      description: 'Fullstack system for attendance management with QR codes and certificate generation',
-      tech: ['NestJS', 'React', 'MySQL', 'Azure'],
-      features: [
-        'QR-based attendance system and certificate generation',
-        'Backend with authentication and CI/CD in GitHub Actions',
-        'Scalable architecture in Azure'
-      ]
-    },
-    'project3': {
-      name: 'Finance Web App',
-      description: 'Financial management application with AI-powered expense classification and a custom chatbot advisor',
-      tech: ['Next.js', 'Firebase', 'AI', 'Gemini'],
-      features: [
-        'Automatic expense classification (>90% accuracy)',
-        'Custom chatbot providing financial advice',
-        'Responsive design with Tailwind CSS'
-      ]
-    },
+    'project1.name': 'LinkedIn-style Platform',
+    'project1.description': 'REST API platform for professional profiles, connections, messaging and notifications',
+    'project1.tech': ['Spring Boot', 'MongoDB', 'JWT', 'REST API', 'Azure'],
+    'project1.features': [
+      'RESTful endpoints for profiles, connections, messaging and notifications',
+      'Complete documentation: requirements, diagrams, deployment',
+      'Security with JWT authentication and roles',
+      'Scalable architecture in Azure'
+    ],
+    'project2.name': 'University Platform',
+    'project2.description': 'Fullstack system for attendance management with QR codes and certificate generation',
+    'project2.tech': ['NestJS', 'React', 'MySQL', 'Azure'],
+    'project2.features': [
+      'QR-based attendance system and certificate generation',
+      'Backend with authentication and CI/CD in GitHub Actions',
+      'Scalable architecture in Azure'
+    ],
+    'project3.name': 'Finance Web App',
+    'project3.description': 'Financial management application with AI-powered expense classification and a custom chatbot advisor',
+    'project3.tech': ['Next.js', 'Firebase', 'AI', 'Gemini'],
+    'project3.features': [
+      'Automatic expense classification (>90% accuracy)',
+      'Custom chatbot providing financial advice',
+      'Responsive design with Tailwind CSS'
+    ],
 
     // About Section
     'about-role': 'Backend Developer',
@@ -286,7 +291,7 @@ const translations: Translations = {
     'footer.rights': 'All rights reserved.',
 
     // UI
-    'switch-lang': 'ES'
+    'switch.lang': 'ES'
   },
   es: {
     // Header
@@ -299,59 +304,54 @@ const translations: Translations = {
     // Hero Section
     greeting: "Hola, soy",
     role: "Estudiante de Ingeniería de Software",
-    'hero-description': "Desarrollador backend con habilidades en Java, Python, Node.js y experiencia en diversos proyectos.",
-    'view-projects': "Ver Proyectos",
-    'contact-me': "Contacto",
-    'profile-image-alt': "Foto de perfil",
+    'hero.description': "Desarrollador backend con habilidades en Java, Python, Node.js y experiencia en diversos proyectos.",
+    'view.projects': "Ver Proyectos",
+    'contact.me': "Contacto",
+    'profile.image.alt': "Foto de perfil",
 
     // Projects Section
-    'my-projects': 'Mis Proyectos',
-    'explore-portfolio': 'Explora mis proyectos técnicos',
-    'projects-description': 'Aquí encontrarás una selección de mis proyectos más desafiantes, mostrando mis habilidades en desarrollo backend.',
-    'fullstack-projects': 'Proyectos completos full-stack con arquitecturas modernas',
-    'technical-solutions': 'Soluciones técnicas innovadoras y escalables',
-    'clean-code': 'Código limpio y mantenible con buenas prácticas',
-    'user-experience': 'Enfoque en la experiencia del usuario y el diseño',
-    'projects-count': 'Proyectos',
-    'technologies-count': 'Tecnologías',
-    'see-project': 'Ver Detalles',
-    'view-code': 'Ver Código',
-    'loading-site': 'Cargando detalles...',
-    'view-live': 'Ver Detalles',
-    'view-preview': 'Ver Vista Previa',
+    'my.projects': 'Mis Proyectos',
+    'explore.portfolio': 'Explora mis proyectos técnicos',
+    'projects.description': 'Aquí encontrarás una selección de mis proyectos más desafiantes, mostrando mis habilidades en desarrollo backend.',
+    'fullstack.projects': 'Proyectos completos full-stack con arquitecturas modernas',
+    'technical.solutions': 'Soluciones técnicas innovadoras y escalables',
+    'clean.code': 'Código limpio y mantenible con buenas prácticas',
+    'user.experience': 'Enfoque en la experiencia del usuario y el diseño',
+    'projects.count': 'Proyectos',
+    'technologies.count': 'Tecnologías',
+    'see.project': 'Ver Detalles',
+    'view.code': 'Ver Código',
+    'loading.site': 'Cargando detalles...',
+    'view.live': 'Ver Detalles',
+    'view.preview': 'Ver Vista Previa',
 
     // Projects
-    'project1': {
-      name: 'Plataforma Estilo LinkedIn',
-      description: 'Plataforma API REST para perfiles profesionales, conexiones, mensajería y notificaciones',
-      tech: ['Spring Boot', 'MongoDB', 'JWT', 'API REST', 'Azure'],
-      features: [
-        'Endpoints RESTful para perfiles, conexiones, mensajería y notificaciones',
-        'Documentación completa: requisitos, diagramas, despliegue',
-        'Seguridad con autenticación JWT y roles',
-        'Arquitectura escalable en Azure'
-      ]
-    },
-    'project2': {
-      name: 'Plataforma Universitaria',
-      description: 'Sistema fullstack para gestión de asistencia con códigos QR y generación de certificados',
-      tech: ['NestJS', 'React', 'MySQL', 'Azure'],
-      features: [
-        'Sistema de asistencia con QR y generación de certificados',
-        'Backend con autenticación y CI/CD en GitHub Actions',
-        'Arquitectura escalable en Azure'
-      ]
-    },
-    'project3': {
-      name: 'Aplicación Web de Finanzas',
-      description: 'Aplicación de gestión financiera con clasificación de gastos por IA y chatbot asesor personalizado',
-      tech: ['Next.js', 'Firebase', 'IA', 'Gemini'],
-      features: [
-        'Clasificación automática de gastos (precisión > 90%)',
-        'Chatbot personalizado que brinda asesorías financieras',
-        'Diseño responsivo con Tailwind CSS'
-      ]
-    },
+    'project1.name': 'Plataforma Estilo LinkedIn',
+    'project1.description': 'Plataforma API REST para perfiles profesionales, conexiones, mensajería y notificaciones',
+    'project1.tech': ['Spring Boot', 'MongoDB', 'JWT', 'API REST', 'Azure'],
+    'project1.features': [
+      'Endpoints RESTful para perfiles, conexiones, mensajería y notificaciones',
+      'Documentación completa: requisitos, diagramas, despliegue',
+      'Seguridad con autenticación JWT y roles',
+      'Arquitectura escalable en Azure'
+    ],
+    'project2.name': 'Plataforma Universitaria',
+    'project2.description': 'Sistema fullstack para gestión de asistencia con códigos QR y generación de certificados',
+    'project2.tech': ['NestJS', 'React', 'MySQL', 'Azure'],
+    'project2.features': [
+      'Sistema de asistencia con QR y generación de certificados',
+      'Backend con autenticación y CI/CD en GitHub Actions',
+      'Arquitectura escalable en Azure'
+    ],
+    'project3.name': 'Aplicación Web de Finanzas',
+    'project3.description': 'Aplicación de gestión financiera con clasificación de gastos por IA y chatbot asesor personalizado',
+    'project3.tech': ['Next.js', 'Firebase', 'IA', 'Gemini'],
+    'project3.features': [
+      'Clasificación automática de gastos (precisión > 90%)',
+      'Chatbot personalizado que brinda asesorías financieras',
+      'Diseño responsivo con Tailwind CSS'
+    ],
+
 
     // About Section
     'about.role': 'Desarrollador Backend',
@@ -557,7 +557,7 @@ const translations: Translations = {
     'footer.rights': 'Todos los derechos reservados.',
 
     // UI
-    'switch-lang': 'EN'
+    'switch.lang': 'EN'
   }
 };
 
@@ -576,7 +576,7 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
 
   // Función para obtener traducciones
   const t = useCallback((key: string): any => {
-    const keys = key.split('.');
+    const keys = key.split('-');
     let translation: any = translations[currentLanguage];
 
     try {

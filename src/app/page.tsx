@@ -48,7 +48,8 @@ export default function Home() {
         <Toaster />
         <Sonner />
         {/* Fondo animado */}
-        <AnimatedBackground />
+        <div className=""><AnimatedBackground /></div>
+
         <div className="w-full font-poppins relative min-h-screen overflow-x-hidden">
           <div className="flex w-full flex-col items-center relative z-10">
             <Header />

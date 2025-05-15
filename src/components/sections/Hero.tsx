@@ -24,7 +24,7 @@ const Hero: React.FC = () => {
   return (
     <section
       id="home"
-      className=" self-stretch flex w-full flex-col overflow-hidden items-center pt-8 md:pt-[84px] px-4 sm:px-8 lg:px-[70px]"
+      className="self-stretch flex w-full flex-col overflow-hidden items-center pt-8 md:pt-[84px] px-4 sm:px-8 lg:px-[70px]"
       aria-label="Introduction"
     >
 
@@ -54,23 +54,40 @@ const Hero: React.FC = () => {
                   {t('role')}
                 </h2>
                 <p
-                  className="text-portfolio-text text-base md:text-lg leading-7 mt-4 md:mt-[35px]"
+                  className="text-portfolio-text text-base md:text-lg leading-7 mt-4 md:mt-[35px] max-w-xl"
                 >
-                  {t('hero-description')}
+                  {t('hero.description')}
                 </p>
 
-                <div className="flex items-stretch gap-4 text-[13px] font-semibold text-center mt-6 md:mt-10">
+                <div className="flex flex-wrap items-center gap-4 mt-6 md:mt-10">
+                  <div className="flex items-center gap-2 text-portfolio-text">
+                    <svg className="h-5 w-5 text-portfolio-accent" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>Pasto, Colombia</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-portfolio-text">
+                    <svg className=" h-5 w-5 text-portfolio-accent" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="m2 6 3 1 4-2 3 2 4-1 6 3v7l-6-3-4 1-3-2-4 2-3-1V6z"></path>
+                      <path d="M22 6 2 18"></path>
+                    </svg>
+                    <span>Inglés B1 (casi B2)</span>
+                  </div>
+                </div>
+
+                <div className="flex items-stretch gap-4 text-[13px] font-semibold text-center mt-8">
                   <Link
-                    to="/projects"
-                    className="bg-portfolio-accent dark:text-white text-portfolio-accent-foreground px-4 sm:px-6 py-3 sm:py-4 rounded-lg hover:bg-portfolio-accent/90 transition-colors"
+                    to="#projects"
+                    className=" card-glass text-portfolio-accent whitespace-nowrap px-4 sm:px-4 py-4 sm:p-4 rounded-lg border-portfolio-accent border-solid border-2 hover:bg-portfolio-accent/10 transition-colors"
                   >
-                    {t('view-projects')}
+                    {t('view.projects')}
                   </Link>
                   <Link
-                    to="/contact"
-                    className="text-portfolio-accent whitespace-nowrap px-4 sm:px-[27px] py-3 sm:py-[18px] rounded-lg border-portfolio-accent border-solid border-2 hover:bg-portfolio-accent/10 transition-colors"
+                    to="#contact"
+                    className="card-glass text-portfolio-accent whitespace-nowrap px-4 sm:px-4 py-4 sm:p-4 rounded-lg border-portfolio-accent border-solid border-2 hover:bg-portfolio-accent/10 transition-colors"
                   >
-                    {t('contact-me')}
+                    {t('contact.me')}
                   </Link>
                 </div>
 
@@ -91,7 +108,7 @@ const Hero: React.FC = () => {
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.6 }}
                       src="https://cdn.builder.io/api/v1/image/assets/TEMP/76b3910733c9520e0f4aeaf63c66587081bbe4bc?placeholderIfAbsent=true"
-                      alt={t('profile-image-alt')}
+                      alt={t('profile.image.alt')}
                       className="aspect-[0.64] object-contain w-full z-10 rounded-[217px]"
                     />
                   </div>
