@@ -44,7 +44,7 @@ export default function Home() {
   return (
 
     <ThemeProvider>
-      <LanguageProvider initialLanguage={initialLanguage}>
+      <LanguageProvider>
         <Toaster />
         <Sonner />
         {/* Fondo animado */}
