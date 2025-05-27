@@ -96,7 +96,7 @@ const Contact: React.FC = () => {
             className="flex items-center gap-5 mt-4"
           >
             <motion.a
-              href="https://github.com/"
+              href="https://github.com/riverbonilla1504"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1 }}
@@ -106,7 +106,7 @@ const Contact: React.FC = () => {
               <Github className="h-6 w-6 text-portfolio-text" />
             </motion.a>
             <motion.a
-              href="https://linkedin.com/"
+              href="https://www.linkedin.com/in/river-alejandro-bonilla-florez-800736333/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1 }}
