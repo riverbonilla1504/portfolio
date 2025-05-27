@@ -72,7 +72,7 @@ const Hero: React.FC = () => {
                       <path d="m2 6 3 1 4-2 3 2 4-1 6 3v7l-6-3-4 1-3-2-4 2-3-1V6z"></path>
                       <path d="M22 6 2 18"></path>
                     </svg>
-                    <span>Inglés B1 (casi B2)</span>
+                    <span>English: B2</span>
                   </div>
                 </div>
 

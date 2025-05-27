@@ -88,7 +88,7 @@ const translations: Translations = {
     ],
 
     // About Section
-    'about-role': 'Backend Developer',
+    'about.role': 'Backend Developer',
     'about.tabs.skills': 'Skills & Technologies',
     'about.tabs.experience': 'Project Experience',
     'about.tabs.education': 'Education',
@@ -100,7 +100,7 @@ const translations: Translations = {
     'about.personal.location': 'Pasto, Colombia',
     'about.personal.phone': '+57 321 971 08 52',
     'about.personal.email': 'riverflorez.04@gmail.com',
-    'about.personal.english': 'English: B1 (almost B2)',
+    'about.personal.english': 'English: B2',
 
     // Skills
     'about.skills.backend.title': 'Backend Development',
@@ -366,7 +366,7 @@ const translations: Translations = {
     'about.personal.location': 'Pasto, Colombia',
     'about.personal.phone': '+57 321 971 08 52',
     'about.personal.email': 'riverflorez.04@gmail.com',
-    'about.personal.english': 'Inglés: B1 (casi B2)',
+    'about.personal.english': 'Inglés: B2',
 
     // Skills
     'about.skills.backend.title': 'Desarrollo Backend',

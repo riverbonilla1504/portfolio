@@ -41,9 +41,8 @@ const Projects: React.FC = () => {
       description: ensureString(t('project1.description')),
       technologies: ensureArray(t('project1.tech')),
       features: ensureArray(t('project1.features')),
-      url: "linkedin-platform.azure.com",
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&auto=format&fit=crop",
-      githubUrl: "https://github.com/example/project1"
+      image: "/code_linkeindt.png",
+      githubUrl: "https://github.com/T0m4s1n/ProyectoDise-oDeSoftware1"
     },
     {
       id: "project2",
@@ -51,9 +50,8 @@ const Projects: React.FC = () => {
       description: ensureString(t('project2.description')),
       technologies: ensureArray(t('project2.tech')),
       features: ensureArray(t('project2.features')),
-      url: "university-platform.azure.com",
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&auto=format&fit=crop",
-      githubUrl: "https://github.com/example/project2"
+      image: "/seminario.png",
+      githubUrl: "https://github.com/riverz1357/seminario-ing-software"
     },
     {
       id: "project3",
@@ -61,9 +59,9 @@ const Projects: React.FC = () => {
       description: ensureString(t('project3.description')),
       technologies: ensureArray(t('project3.tech')),
       features: ensureArray(t('project3.features')),
-      url: "finance-app.vercel.app",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&auto=format&fit=crop",
-      githubUrl: "https://github.com/example/project3"
+      url: "finance-app-rosy-nine.vercel.app",
+      image: "/financeapp.png",
+      githubUrl: "https://github.com/riverbonilla1504/finance-app"
     }
   ];
 

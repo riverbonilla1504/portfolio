@@ -15,21 +15,21 @@ const Testimonials: React.FC = () => {
       name: t('testimonials.ana.name'),
       role: t('testimonials.ana.role'),
       text: t('testimonials.ana.text'),
-      image: "https://cdn.builder.io/api/v1/image/assets/TEMP/0fa9de8de15c8034ed9bc255856068140859b6b8?placeholderIfAbsent=true"
+      image: "/ana.png"
     },
     {
       id: 2,
       name: t('testimonials.carlos.name'),
       role: t('testimonials.carlos.role'),
       text: t('testimonials.carlos.text'),
-      image: "https://cdn.builder.io/api/v1/image/assets/TEMP/13a10b9fd3c8c5e0a68a0f76c7ae8b42fc5bbfaf?placeholderIfAbsent=true"
+      image: "/carlos.png"
     },
     {
       id: 3,
       name: t('testimonials.laura.name'),
       role: t('testimonials.laura.role'),
       text: t('testimonials.laura.text'),
-      image: "https://cdn.builder.io/api/v1/image/assets/TEMP/2c410d94f73913c1335ca072bb966ec38ee5bbab?placeholderIfAbsent=true"
+      image: "/laura.png"
     }
   ];
 

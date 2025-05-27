@@ -1,7 +1,8 @@
-
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "../../hooks/useTranslation";
+import emailjs from '@emailjs/browser';
+import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from "@/config/emailjs";
 
 interface FormData {
   name: string;
@@ -21,6 +22,7 @@ const ContactForm: React.FC = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
 
   // Helper function to ensure we always get a string
   const ensureString = (value: any): string => {
@@ -39,27 +41,40 @@ const ContactForm: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError(false);
 
-    // Simulate form submission
-    setTimeout(() => {
-      console.log("Form submitted:", formData);
-      setIsSubmitting(false);
+    try {
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_email: 'riverflorez.04@gmail.com',
+      };
+
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
+
       setSubmitSuccess(true);
-
-      // Reset form after success
-      setTimeout(() => {
-        setSubmitSuccess(false);
-        setFormData({
-          name: "",
-          email: "",
-          subject: "",
-          message: "",
-        });
-      }, 3000);
-    }, 1500);
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setSubmitError(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -68,7 +83,7 @@ const ContactForm: React.FC = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className=" card-glass bg-portfolio-surface shadow-[0px_8px_32px_rgba(0,0,0,0.1)] border flex w-full max-w-[1024px] flex-col items-stretch text-[15px] text-portfolio-text font-medium p-5 md:p-[41px] rounded-2xl border-portfolio-border max-md:mt-6"
+      className="card-glass bg-portfolio-surface shadow-[0px_8px_32px_rgba(0,0,0,0.1)] border flex w-full max-w-[1024px] flex-col items-stretch text-[15px] text-portfolio-text font-medium p-5 md:p-[41px] rounded-2xl border-portfolio-border max-md:mt-6"
     >
       {/* Name & Email Labels */}
       <div className="flex w-full md:w-[552px] max-w-full items-stretch gap-5 flex-wrap justify-between">
@@ -77,7 +92,7 @@ const ContactForm: React.FC = () => {
       </div>
 
       {/* Name & Email Inputs */}
-      <div className="flex flex-col md:flex-row items-stretch gap-4 md:gap-6 text-portfolio-text/70 font-normal mt-[15px] max-md:max-w-full">
+      <div className="flex w-full md:w-[552px] max-w-full items-stretch gap-5 flex-wrap mt-2">
         <motion.input
           whileFocus={{ scale: 1.02 }}
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -152,7 +167,13 @@ const ContactForm: React.FC = () => {
             className="aspect-[1] object-contain w-5 shrink-0"
           />
           <span className="grow shrink w-[111px] my-auto">
-            {isSubmitting ? ensureString(t('contact.sending')) : submitSuccess ? ensureString(t('contact.success')) : ensureString(t('contact.send'))}
+            {isSubmitting
+              ? ensureString(t('contact.sending'))
+              : submitSuccess
+                ? ensureString(t('contact.success'))
+                : submitError
+                  ? ensureString(t('contact.error'))
+                  : ensureString(t('contact.send'))}
           </span>
         </div>
       </motion.button>
