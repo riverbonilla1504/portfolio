@@ -1,13 +1,7 @@
-
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "../../hooks/useTranslation";
 import { useIsMobile } from "../../hooks/use-mobile";
-import {
-  HoverCard,
-  HoverCardTrigger,
-  HoverCardContent
-} from "@/components/ui/hover-card";
 import { ExternalLink, Github } from "lucide-react";
 
 interface Project {
@@ -47,9 +41,8 @@ const Projects: React.FC = () => {
       description: ensureString(t('project1.description')),
       technologies: ensureArray(t('project1.tech')),
       features: ensureArray(t('project1.features')),
-      url: "linkedin-platform.azure.com",
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&auto=format&fit=crop",
-      githubUrl: "https://github.com/example/project1"
+      image: "/code_linkeindt.png",
+      githubUrl: "https://github.com/T0m4s1n/ProyectoDise-oDeSoftware1"
     },
     {
       id: "project2",
@@ -57,9 +50,8 @@ const Projects: React.FC = () => {
       description: ensureString(t('project2.description')),
       technologies: ensureArray(t('project2.tech')),
       features: ensureArray(t('project2.features')),
-      url: "university-platform.azure.com",
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&auto=format&fit=crop",
-      githubUrl: "https://github.com/example/project2"
+      image: "/seminario.png",
+      githubUrl: "https://github.com/riverz1357/seminario-ing-software"
     },
     {
       id: "project3",
@@ -67,9 +59,9 @@ const Projects: React.FC = () => {
       description: ensureString(t('project3.description')),
       technologies: ensureArray(t('project3.tech')),
       features: ensureArray(t('project3.features')),
-      url: "finance-app.vercel.app",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&auto=format&fit=crop",
-      githubUrl: "https://github.com/example/project3"
+      url: "finance-app-rosy-nine.vercel.app",
+      image: "/financeapp.png",
+      githubUrl: "https://github.com/riverbonilla1504/finance-app"
     }
   ];
 
@@ -102,49 +94,40 @@ const Projects: React.FC = () => {
 
   const ProjectCard = ({ project }: { project: Project }) => (
     <div className="p-4 card-glass bg-portfolio-surface/30 border-t border-portfolio-border">
-      <HoverCard>
-        <HoverCardTrigger asChild>
-          <div className="relative aspect-video w-full overflow-hidden rounded-md cursor-pointer group">
-            <img
-              src={project.image}
-              alt={project.name}
-              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-portfolio-surface/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <div className="relative aspect-video w-full overflow-hidden rounded-md group cursor-pointer">
+        <img
+          src={project.image}
+          alt={project.name}
+          className="w-full h-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:blur-sm"
+        />
+        {/* Overlay que aparece en hover */}
+        <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+          <div className="flex space-x-4">
+            {project.url && (
+              <a
+                href={`https://${project.url}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-white bg-portfolio-accent px-4 py-2 rounded-md hover:bg-portfolio-accent/80 transition-colors transform hover:scale-105"
+              >
+                <ExternalLink size={16} />
+                <span>Visit Site</span>
+              </a>
+            )}
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-white bg-gray-700 px-4 py-2 rounded-md hover:bg-gray-600 transition-colors transform hover:scale-105"
+              >
+                <Github size={16} />
+                <span>View Code</span>
+              </a>
+            )}
           </div>
-        </HoverCardTrigger>
-        <HoverCardContent className="w-full p-0 bg-portfolio-surface border-portfolio-border shadow-lg animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95">
-          <div className="p-4">
-            <h3 className="text-portfolio-text font-bold text-lg mb-2">{project.name}</h3>
-            <p className="text-portfolio-text text-sm mb-4">{project.description}</p>
-
-            <div className="flex space-x-3 mt-3">
-              {project.url && (
-                <a
-                  href={`https://${project.url}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-xs bg-portfolio-accent text-white px-3 py-2 rounded-md hover:bg-portfolio-accent/80 transition-colors"
-                >
-                  <ExternalLink size={14} />
-                  <span>Visit Site</span>
-                </a>
-              )}
-              {project.githubUrl && (
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-xs bg-portfolio-surface border border-portfolio-border px-3 py-2 rounded-md hover:bg-portfolio-surface/80 transition-colors"
-                >
-                  <Github size={14} />
-                  <span>View Code</span>
-                </a>
-              )}
-            </div>
-          </div>
-        </HoverCardContent>
-      </HoverCard>
+        </div>
+      </div>
 
       <div className="mt-4">
         <h3 className="text-portfolio-text font-bold text-lg">{project.name}</h3>
