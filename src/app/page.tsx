@@ -53,9 +53,7 @@ export default function Home() {
         <div className="w-full font-poppins relative min-h-screen overflow-x-hidden">
           <div className="flex w-full flex-col items-center relative z-10">
             <Header />
-            <section id="home">
-              <Hero />
-            </section>
+            <Hero />
             <Projects />
             <About />
             <Testimonials />

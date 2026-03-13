@@ -214,6 +214,8 @@ const About: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveTab(tab.id)}
+              type="button"
+              role="tab"
               className={`card-glass flex items-center gap-[9px] px-3 md:px-[25px] py-2 md:py-[13px] rounded-lg transition-colors ${activeTab === tab.id
                 ? "bg-portfolio-primary"
                 : "bg-portfolio-surface/50 border border-portfolio-border"
